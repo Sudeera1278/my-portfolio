@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Code, Database, Smartphone, Webhook } from "lucide-react";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const projectsData = [
   {
@@ -17,6 +19,7 @@ const projectsData = [
     ],
     category: "Fullstack web project",
     link: "#",
+    imageId: "internlink-project",
   },
   {
     title: "Salon Booking System – Backend API",
@@ -27,6 +30,7 @@ const projectsData = [
     ],
     category: "Backend development",
     link: "#",
+    imageId: "salon-booking-project",
   },
   {
     title: "Polling Vote Application – Fullstack",
@@ -37,6 +41,7 @@ const projectsData = [
     ],
     category: "Fullstack web application",
     link: "#",
+    imageId: "polling-app-project",
   },
   {
     title: "BloodLink – Mobile Application",
@@ -47,6 +52,7 @@ const projectsData = [
     ],
     category: "Fullstack mobile project",
     link: "#",
+    imageId: "bloodlink-project",
   },
 ];
 
@@ -86,39 +92,57 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
         >
-          {projectsData.map((project, index) => (
-            <motion.div
-              key={index}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex flex-col justify-between
-                         hover:shadow-lg hover:shadow-white/10 hover:-translate-y-2 transition-all duration-300
-                         relative overflow-hidden group"
-              variants={itemVariants}
-            >
-              <div className="absolute top-0 left-0 w-full h-full border-2 border-transparent group-hover:border-white/20 rounded-xl transition-all duration-300 pointer-events-none"></div>
+          {projectsData.map((project, index) => {
+            const projectImage = PlaceHolderImages.find(p => p.id === project.imageId);
+            return (
+              <motion.div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex flex-col justify-between
+                           hover:shadow-lg hover:shadow-white/10 hover:-translate-y-2 transition-all duration-300
+                           relative overflow-hidden group"
+                variants={itemVariants}
+              >
+                <div className="absolute top-0 left-0 w-full h-full border-2 border-transparent group-hover:border-white/20 rounded-xl transition-all duration-300 pointer-events-none"></div>
+                
+                <div>
+                  {projectImage && (
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={projectImage.imageUrl}
+                        alt={projectImage.description}
+                        fill
+                        className="object-cover rounded-t-xl"
+                        data-ai-hint={projectImage.imageHint}
+                      />
+                    </div>
+                  )}
 
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, i) => (
-                    <Badge
-                      key={i}
-                      variant="secondary"
-                      className="bg-white/10 text-white flex items-center gap-1"
-                    >
-                      {tech.icon}
-                      {tech.name}
-                    </Badge>
-                  ))}
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                    <p className="text-muted-foreground">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, i) => (
+                        <Badge
+                          key={i}
+                          variant="secondary"
+                          className="bg-white/10 text-white flex items-center gap-1"
+                        >
+                          {tech.icon}
+                          {tech.name}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="mt-6">
-                <Button variant="outline" className="w-full bg-transparent text-white border-white/20 hover:bg-white/10">
-                  View Project
-                </Button>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="p-6 pt-0 mt-auto">
+                  <Button variant="outline" className="w-full bg-transparent text-white border-white/20 hover:bg-white/10">
+                    View Project
+                  </Button>
+                </div>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     </motion.section>

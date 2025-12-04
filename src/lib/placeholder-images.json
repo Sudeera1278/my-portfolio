@@ -5,6 +5,30 @@
       "description": "A portrait of the developer",
       "imageUrl": "https://images.unsplash.com/photo-1561740303-a0fd9fabc646?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwb3J0cmFpdCUyMHBlcnNvbnxlbnwwfHx8fDE3NjQ3NjE5ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "portrait person"
+    },
+    {
+      "id": "internlink-project",
+      "description": "Screenshot of the InternLink web application dashboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1559028006-448665bd7c7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWIlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE3NjQ4NTk2OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web application"
+    },
+    {
+      "id": "salon-booking-project",
+      "description": "Conceptual image for a salon booking system.",
+      "imageUrl": "https://images.unsplash.com/photo-1695527081874-b674c46f40fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzYWxvbiUyMGludGVyaW9yfGVufDB8fHx8MTc2NDgxNzUxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "salon interior"
+    },
+    {
+      "id": "polling-app-project",
+      "description": "A screen from a polling or voting application.",
+      "imageUrl": "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGFydCUyMGdyYXBofGVufDB8fHx8MTc2NDc5Mzk1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chart graph"
+    },
+    {
+      "id": "bloodlink-project",
+      "description": "Mobile application interface for BloodLink.",
+      "imageUrl": "https://images.unsplash.com/photo-1676311522524-fa7c0bffd644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2JpbGUlMjBoZWFsdGhjYXJlfGVufDB8fHx8MTc2NDg1OTY5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile healthcare"
     }
   ]
 }
