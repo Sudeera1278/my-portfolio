@@ -55,11 +55,11 @@ const AboutMe = () => {
             )}
           </motion.div>
           <div className="space-y-8">
-            <motion.div variants={itemVariants} className="space-y-4 text-center">
+            <motion.div variants={itemVariants} className="space-y-4">
               <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
                 Full Stack Developer
               </h2>
-              <div className="flex justify-center">
+              <div className="flex">
                 <div className="w-24 h-1 bg-white rounded-full" />
               </div>
               <h3 className="text-xl md:text-2xl text-white">
@@ -68,7 +68,7 @@ const AboutMe = () => {
             </motion.div>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed text-center"
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed"
             >
               I am a passionate Software Engineer focused on creating fast,
               secure, and user-friendly web applications. I enjoy turning complex
