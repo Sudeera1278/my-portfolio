@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold"
+          className="flex items-center gap-2 text-lg font-bold text-white"
           prefetch={false}
         >
           <span>Portfolio</span>
@@ -29,12 +29,15 @@ const Navbar = () => {
             <Link href="#projects">Projects</Link>
           </Button>
           <Button variant="link" asChild className="text-white">
+            <Link href="#skills">Skill</Link>
+          </Button>
+          <Button variant="link" asChild className="text-white">
             <Link href="#contact">Contact</Link>
           </Button>
         </nav>
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild>
-            <Button className="md:hidden" variant="ghost" size="icon">
+            <Button className="md:hidden text-white" variant="ghost" size="icon">
               <MenuIcon className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
@@ -55,6 +58,9 @@ const Navbar = () => {
                 </Button>
                 <Button variant="ghost" asChild onClick={closeSheet}>
                   <Link href="#projects">Projects</Link>
+                </Button>
+                <Button variant="ghost" asChild onClick={closeSheet}>
+                  <Link href="#skills">Skill</Link>
                 </Button>
                 <Button variant="ghost" asChild onClick={closeSheet}>
                   <Link href="#contact">Contact</Link>
