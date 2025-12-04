@@ -22,13 +22,13 @@ const Navbar = () => {
           <span>Portfolio</span>
         </Link>
         <nav className="hidden md:flex items-center gap-2">
-          <Button variant="link" asChild className="text-primary-foreground">
+          <Button variant="link" asChild className="text-white">
             <Link href="#about">About</Link>
           </Button>
-          <Button variant="link" asChild className="text-primary-foreground">
+          <Button variant="link" asChild className="text-white">
             <Link href="#projects">Projects</Link>
           </Button>
-          <Button variant="link" asChild className="text-primary-foreground">
+          <Button variant="link" asChild className="text-white">
             <Link href="#contact">Contact</Link>
           </Button>
         </nav>
