@@ -139,7 +139,7 @@ const CinematicHero = () => {
         >
           <motion.p
             variants={itemVariants}
-            className="text-muted-foreground md:text-lg"
+            className="text-foreground md:text-lg"
           >
             Developer & Designer
           </motion.p>
