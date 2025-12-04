@@ -93,7 +93,7 @@ const TechStack = () => {
   return (
     <motion.section
       id="skills"
-      className="w-full py-20 md:py-32 bg-black overflow-hidden"
+      className="w-full py-20 md:py-32 bg-background overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -112,7 +112,7 @@ const TechStack = () => {
 
         {/* Secondary (background) row */}
         <motion.div
-          className="flex justify-center items-center space-x-4 md:space-x-8 -mb-4"
+          className="flex justify-center items-center space-x-4 md:space-x-8 mb-8"
           variants={itemVariants}
         >
           {secondaryTech.map((tech) => (
@@ -170,15 +170,15 @@ const TechTile = ({ tech, isActive, onClick }) => {
                 : "bg-neutral-800/50 opacity-60 hover:opacity-100 hover:scale-105"
             )}
             style={{
-                background: "linear-gradient(145deg, #262626, #1A1A1A)",
-                boxShadow: isActive ? "0 0 25px rgba(0, 255, 255, 0.4)" : "0 4px 6px rgba(0,0,0,0.2)"
+                background: isActive ? "linear-gradient(145deg, #FF9900, #F89820)" : "linear-gradient(145deg, #262626, #1A1A1A)",
+                boxShadow: isActive ? "0 0 25px rgba(255, 153, 0, 0.5)" : "0 4px 6px rgba(0,0,0,0.2)"
             }}
           >
             <AnimatePresence>
               {isActive && (
                 <motion.div
                   layoutId="glow"
-                  className="absolute inset-0 rounded-2xl border-2 border-cyan-400"
+                  className="absolute inset-0 rounded-2xl border-2 border-amber-400"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
