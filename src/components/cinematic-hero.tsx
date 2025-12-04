@@ -34,14 +34,16 @@ const CinematicHero = () => {
         events: {
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: "bubble",
           },
           resize: true,
         },
         modes: {
-          repulse: {
-            distance: 100,
-            duration: 0.4,
+          bubble: {
+            distance: 200,
+            duration: 2,
+            opacity: 1,
+            size: 3,
           },
         },
       },
