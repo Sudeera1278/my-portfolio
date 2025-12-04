@@ -33,9 +33,16 @@ const CinematicHero = () => {
       interactivity: {
         events: {
           onHover: {
-            enable: false,
+            enable: true,
+            mode: "repulse",
           },
           resize: true,
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4,
+          },
         },
       },
       particles: {
