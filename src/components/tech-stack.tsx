@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-// SVG Icons (placeholders) - MOVED TO TOP
+// SVG Icons for primary and secondary tech
 const TSIcon = () => (
   <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="32" fill="#3178c6"></rect><path fill="#fff" d="M93.32 54.72h-17.4V37.32h-11.4v17.4H47.12v11.4h17.4v17.4h11.4V66.12h17.4Z M42.32 87.32l-5.6-5.6 15.6-15.6-15.6-15.6 5.6-5.6 15.6 15.6 15.6-15.6 5.6 5.6-15.6 15.6 15.6 15.6-5.6 5.6-15.6-15.6Z"></path></svg>
 );
@@ -23,14 +23,14 @@ const PythonIcon = () => (
 const JavaIcon = () => (
     <svg viewBox="0 0 128 128"><g><path d="M84.7 30.8c-2.4-3.4-5.9-5.4-11.2-5.4-5.3 0-8.8 1.9-11 4.4-1.9 2.2-2.9 5.3-2.9 9.3v34.9c0 4.2 1 7.2 2.9 9.3 2.2 2.5 5.8 4.4 11.1 4.4 5.3 0 8.8-1.9 11.1-5.3 2-3 2.9-7.1 2.9-12.4V62.4c6-4.5 9.2-9.6 9.2-15.6.1-6.1-3.2-11.5-9.4-16z" fill="#f89820"></path><path d="M42.7 30.8c-2.4-3.4-5.9-5.4-11.2-5.4-5.3 0-8.8 1.9-11 4.4-1.9 2.2-2.9 5.3-2.9 9.3v34.9c0 4.2 1 7.2 2.9 9.3 2.2 2.5 5.8 4.4 11.1 4.4 5.3 0 8.8-1.9 11.1-5.3 2-3 2.9-7.1 2.9-12.4V62.4c6-4.5 9.2-9.6 9.2-15.6.1-6.1-3.2-11.5-9.4-16z" fill="#5382a1"></path></g></svg>
 );
-const SpringBootIcon = () => (
-    <svg viewBox="0 0 128 128"><path fill="#6db33f" d="M109.4 54.2c-3.1-13-14.4-23.4-28-26.5.1-1 .1-2 .1-3.1 0-8.8-7.2-16-16-16-7.8 0-14.3 5.6-15.7 12.9-1.9-1.2-4.2-1.8-6.6-1.8-8.8 0-16 7.2-16 16 0 .8.1 1.6.2 2.4-12.8 3.5-22.9 13.9-25.2 27.2-1 6.1.1 12.3 3.1 17.6 3.1 5.3 7.8 9.2 13.5 11.2.6.2 1.3.3 1.9.3h69.1c.7 0 1.4-.1 2-.3 15.3-4.8 24.2-20.5 19.4-35.8zM82.8 77H38.5c-1.3 0-2.3-1-2.3-2.3v-2.3c0-1.3 1-2.3 2.3-2.3h44.3c1.3 0 2.3 1 2.3 2.3v2.3c0 1.2-1 2.3-2.3 2.3zm-2.3-11.6H40.8c-1.3 0-2.3-1-2.3-2.3v-2.3c0-1.3 1-2.3 2.3-2.3h39.7c1.3 0 2.3 1 2.3 2.3v2.3c0 1.3-1 2.3-2.3 2.3zm-2.3-11.5H43.1c-1.3 0-2.3-1-2.3-2.3v-2.3c0-1.3 1-2.3 2.3-2.3h35.1c1.3 0 2.3 1 2.3 2.3v2.3c0 1.3-1 2.3-2.3 2.3z"></path></svg>
-);
 const CSharpIcon = () => (
     <svg viewBox="0 0 128 128"><g fill="#6a1577"><path d="M96.3 31.7L76.5 51.5l19.8 19.8-11.3 11.3L65.2 62.8l-19.8 19.8-11.3-11.3 19.8-19.8-19.8-19.8 11.3-11.3L53.9 40.2l19.8-19.8z"></path><path d="M31.7 96.3l11.3-11.3-19.8-19.8 19.8-19.8-11.3-11.3-19.8 19.8zM96.3 31.7L85 43l19.8 19.8-19.8 19.8 11.3 11.3 19.8-19.8-19.8-19.8z"></path></g></svg>
 );
 const PHPIcon = () => (
     <svg viewBox="0 0 128 128"><ellipse cx="64" cy="64" rx="46.5" ry="25.5" fill="#8892be"></ellipse><g fill="#fff"><path d="M45.5 51.5h11v25h-11zM72 51.5c6.6 0 11.5 4.9 11.5 12.5S78.6 76.5 72 76.5h-5.5v-25H72zm0 6h-5.5v13H72c3.3 0 5.5-2.2 5.5-6.5s-2.2-6.5-5.5-6.5zM98 51.5c6.6 0 11.5 4.9 11.5 12.5S104.6 76.5 98 76.5H92.5v-25H98zm0 6H92.5v13H98c3.3 0 5.5-2.2 5.5-6.5s-2.2-6.5-5.5-6.5z"></path></g></svg>
+);
+const CIcon = () => (
+    <svg viewBox="0 0 128 128"><path fill="#00599c" d="M64 0a64 64 0 1 0 0 128A64 64 0 0 0 64 0z"></path><path fill="#fff" d="M85.3 40.3c-7.9-7.9-18.4-12.3-29.6-12.3-11.2 0-21.7 4.4-29.6 12.3-2.1 2.1-2.1 5.4 0 7.4 2.1 2.1 5.4 2.1 7.4 0 5.8-5.8 13.5-9 22.2-9s16.4 3.2 22.2 9c2.1 2.1 5.4 2.1 7.4 0 2-2.1 2-5.4 0-7.4z"></path></svg>
 );
 const ReactIcon = () => (
     <svg viewBox="-11.5 -10.232 23 20.463"><circle r="2.05" fill="#61dafb"></circle><g stroke="#61dafb" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2"></ellipse><ellipse rx="11" ry="4.2" transform="rotate(60)"></ellipse><ellipse rx="11" ry="4.2" transform="rotate(120)"></ellipse></g></svg>
@@ -43,21 +43,25 @@ const FigmaIcon = () => <svg viewBox="0 0 128 128"><path fill="#f24e1e" d="M42.5
 const AWSIcon = () => <svg viewBox="0 0 128 128"><path fill="#FF9900" d="M19.1 82.2c-.3 1.1.2 2.2 1.3 2.5 1.1.3 2.2-.2 2.5-1.3l10-35.3c.3-1.1-.2-2.2-1.3-2.5-1.1-.3-2.2.2-2.5 1.3l-10 35.3zM102.7 47.1l-10 35.3c-.3 1.1.2 2.2 1.3 2.5 1.1.3 2.2-.2 2.5-1.3l10-35.3c.3-1.1-.2-2.2-1.3-2.5-1.1-.3-2.2.2-2.5 1.3z"/><path fill="#232F3E" d="M53.4 34.3c-2.6 0-5.2.3-7.8.9-1.5.3-2.5 1.9-2.2 3.4.3 1.5 1.9 2.5 3.4 2.2 2.2-.5 4.5-.7 6.7-.7 8.2 0 16.3 1.4 23.8 4.2 1.4.5 2.9-.2 3.4-1.6.5-1.4-.2-2.9-1.6-3.4-8.2-3-17.1-4.5-25.7-4.5zM41.7 88.9c-.3-1.5-1.9-2.5-3.4-2.2s-2.5 1.9-2.2 3.4c2.8 13.9 14.4 23.9 28 23.9 8.2 0 16-2.5 22.2-7.1 1.2-1 .9-2.7-.2-3.5-.9-.6-2.2-.6-3.1 0-5.5 4-12.3 6.1-19 6.1-12.1 0-22.5-8.8-24.9-20.6zM64 54.3c-7.4 0-13.3 6-13.3 13.3s6 13.3 13.3 13.3 13.3-6 13.3-13.3-6-13.3-13.3-13.3zm0 22.7c-5.2 0-9.4-4.2-9.4-9.4s4.2-9.4 9.4-9.4 9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4z"/></svg>;
 const AzureIcon = () => <svg viewBox="0 0 128 128"><path fill="#0078d4" d="M79.5 21.8L38.2 73.1l-16.7-9.5L64 21.8h15.5zM21.5 63.6l16.7 9.5 24.3 33.1H41.8L21.5 63.6z"/></svg>;
 const GoogleCloudIcon = () => <svg viewBox="0 0 128 128"><path fill="#4285F4" d="M96.5 64c0-14.8-10.4-27.4-24.2-31.5-2.2-.6-4.5-1-6.8-1-10.2 0-19.3 4.2-25.9 10.9-4.8 4.8-7.9 11.2-8.5 18.2H12.5c.6-8.5 4.5-16.2 10.3-22.1 6.8-6.8 15.6-10.8 25.1-11.4 1.9-.1 3.8-.2 5.6-.2 6.5 0 12.8 1.4 18.6 4.1 10.3 4.7 18.4 13.3 22.1 24.2.3.8.5 1.5.7 2.3h16.1z"/><path fill="#FBBC05" d="M37.9 96.6c4.8 4.8 11.2 7.9 18.2 8.5h18.6c14.8 0 27.4-10.4 31.5-24.2.6-2.2 1-4.5 1-6.8 0-10.2-4.2-19.3-10.9-25.9-4.8-4.8-11.2-7.9-18.2-8.5H57.5c-.7 8.5-4.5 16.2-10.3 22.1-6.8 6.8-15.6 10.8-25.1 11.4-1.9.1-3.8.2-5.6.2-1.3 0-2.6 0-3.9-.1v18.6c0 1.9.1 3.8.2 5.6z"/><path fill="#34A853" d="M64.5 73.1c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5c6.2 0 11.2-5 11.2-11.2s-5-11.2-11.2-11.2c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5c9.9 0 18.2 8.1 18.2 18.2s-8.2 18.2-18.2 18.2z"/><path fill="#EA4335" d="M64 64c0 1.9-1.6 3.5-3.5 3.5H42.3c-9.9 0-18.2-8.1-18.2-18.2 0-9.9 8.1-18.2 18.2-18.2h18.2c1.9 0 3.5 1.6 3.5 3.5s-1.6 3.5-3.5 3.5H42.3c-6.2 0-11.2 5-11.2 11.2s5 11.2 11.2 11.2H60.5c1.9 0 3.5 1.6 3.5 3.5z"/></svg>;
+const SpringBootIcon = () => (
+    <svg viewBox="0 0 128 128"><path fill="#6db33f" d="M109.4 54.2c-3.1-13-14.4-23.4-28-26.5.1-1 .1-2 .1-3.1 0-8.8-7.2-16-16-16-7.8 0-14.3 5.6-15.7 12.9-1.9-1.2-4.2-1.8-6.6-1.8-8.8 0-16 7.2-16 16 0 .8.1 1.6.2 2.4-12.8 3.5-22.9 13.9-25.2 27.2-1 6.1.1 12.3 3.1 17.6 3.1 5.3 7.8 9.2 13.5 11.2.6.2 1.3.3 1.9.3h69.1c.7 0 1.4-.1 2-.3 15.3-4.8 24.2-20.5 19.4-35.8zM82.8 77H38.5c-1.3 0-2.3-1-2.3-2.3v-2.3c0-1.3 1-2.3 2.3-2.3h44.3c1.3 0 2.3 1 2.3 2.3v2.3c0 1.2-1 2.3-2.3 2.3zm-2.3-11.6H40.8c-1.3 0-2.3-1-2.3-2.3v-2.3c0-1.3 1-2.3 2.3-2.3h39.7c1.3 0 2.3 1 2.3 2.3v2.3c0 1.3-1 2.3-2.3 2.3zm-2.3-11.5H43.1c-1.3 0-2.3-1-2.3-2.3v-2.3c0-1.3 1-2.3 2.3-2.3h35.1c1.3 0 2.3 1 2.3 2.3v2.3c0 1.3-1 2.3-2.3 2.3z"></path></svg>
+);
+
 
 const primaryTech = [
   { name: "TypeScript", icon: <TSIcon /> },
   { name: "JavaScript", icon: <JSIcon /> },
   { name: "Python", icon: <PythonIcon /> },
   { name: "Java", icon: <JavaIcon /> },
-  { name: "Spring Boot", icon: <SpringBootIcon /> },
   { name: "C#", icon: <CSharpIcon /> },
   { name: "PHP", icon: <PHPIcon /> },
+  { name: "C", icon: <CIcon /> },
   { name: "React", icon: <ReactIcon /> },
 ];
 
 const secondaryTech = [
-  { name: "MySQL", icon: <MySQLIcon /> },
   { name: "PostgreSQL", icon: <PostgreSQLIcon /> },
+  { name: "MySQL", icon: <MySQLIcon /> },
   { name: "Docker", icon: <DockerIcon /> },
   { name: "Linux", icon: <LinuxIcon /> },
   { name: "Figma", icon: <FigmaIcon /> },
@@ -158,21 +162,22 @@ const TechStack = () => {
 const TechTile = ({ tech, isActive, onClick }) => {
   return (
     <TooltipProvider>
-      <Tooltip>
+      <Tooltip open={isActive ? true : undefined}>
         <TooltipTrigger asChild>
           <motion.div
             onClick={onClick}
             className={cn(
               "relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 cursor-pointer rounded-2xl transition-all duration-300",
-              "flex items-center justify-center",
+              "flex items-center justify-center p-4",
               isActive
-                ? "bg-white/10 opacity-100 scale-110"
-                : "bg-neutral-800/50 opacity-60 hover:opacity-100 hover:scale-105"
+                ? "opacity-100 scale-110"
+                : "opacity-60 hover:opacity-100 hover:scale-105"
             )}
             style={{
-                background: isActive ? "linear-gradient(145deg, #FF9900, #F89820)" : "linear-gradient(145deg, #262626, #1A1A1A)",
-                boxShadow: isActive ? "0 0 25px rgba(255, 153, 0, 0.5)" : "0 4px 6px rgba(0,0,0,0.2)"
+                background: isActive ? "linear-gradient(145deg, hsl(34, 100%, 50%), hsl(34, 90%, 45%))" : "linear-gradient(145deg, #262626, #1A1A1A)",
+                boxShadow: isActive ? "0 0 25px rgba(255, 149, 0, 0.5), 0 10px 20px rgba(0,0,0,0.3)" : "0 4px 6px rgba(0,0,0,0.2)"
             }}
+            whileHover={{ scale: 1.15 }}
           >
             <AnimatePresence>
               {isActive && (
@@ -186,7 +191,9 @@ const TechTile = ({ tech, isActive, onClick }) => {
                 ></motion.div>
               )}
             </AnimatePresence>
-            <div className="w-12 h-12 md:w-14 md:h-14 text-white">{tech.icon}</div>
+            <div className={cn("w-full h-full text-white", !isActive && "grayscale")}>
+              {tech.icon}
+            </div>
           </motion.div>
         </TooltipTrigger>
         <TooltipContent className="bg-neutral-900 text-white border-neutral-700">
