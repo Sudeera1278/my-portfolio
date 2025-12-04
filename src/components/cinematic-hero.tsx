@@ -1,37 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Particles, { IOptions, RecursivePartial } from "react-tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
-
-const MountainLayer = ({
-  fill,
-  transform,
-  children,
-}: {
-  fill: string;
-  transform: any;
-  children: React.ReactNode;
-}) => (
-  <motion.div
-    className="absolute bottom-0 inset-x-0 w-full"
-    style={{ x: transform }}
-  >
-    <svg
-      width="100%"
-      viewBox="0 0 1440 400"
-      preserveAspectRatio="xMidYMax slice"
-      aria-hidden="true"
-      focusable="false"
-      className="w-full h-auto"
-      fill={fill}
-    >
-      {children}
-    </svg>
-  </motion.div>
-);
 
 const CinematicHero = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -109,18 +82,6 @@ const CinematicHero = () => {
     []
   );
 
-  const mouseX = useMotionValue(0);
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (isMounted) {
-      mouseX.set(event.clientX - window.innerWidth / 2);
-    }
-  };
-
-  const m1x = useTransform(mouseX, (v) => v * -0.01);
-  const m2x = useTransform(mouseX, (v) => v * -0.02);
-  const m3x = useTransform(mouseX, (v) => v * -0.03);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -146,7 +107,6 @@ const CinematicHero = () => {
 
   return (
     <section
-      onMouseMove={handleMouseMove}
       className="relative w-full h-screen bg-background overflow-hidden"
     >
       {isMounted && (
@@ -158,18 +118,6 @@ const CinematicHero = () => {
           className="absolute inset-0 z-0"
         />
       )}
-
-      <div className="absolute inset-0 z-10">
-        <MountainLayer fill="#111111" transform={m3x}>
-          <path d="M-132.2,423.7c316.5-296.2,568.8-356.5,836.3-176.6c267.5,179.9,555,179.9,555,179.9V431H-132.2V423.7z" />
-        </MountainLayer>
-        <MountainLayer fill="#181818" transform={m2x}>
-          <path d="M1440,248.3c-234.3-113.4-468.6-113.4-702.8,0c-156.2,75.6-234.3,75.6-390.4,0S156.2,172.7,0,248.3V431h1440V248.3z" />
-        </MountainLayer>
-        <MountainLayer fill="#222222" transform={m1x}>
-          <path d="M-3,313.4C192.3,169.5,417.3-33,702.8,110.9S1159,389,1440,313.4V431H-3V313.4z" />
-        </MountainLayer>
-      </div>
 
       <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-background via-background/30 to-transparent z-20"></div>
 
