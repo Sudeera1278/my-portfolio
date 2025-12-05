@@ -106,131 +106,130 @@ const Contact = () => {
       variants={containerVariants}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12">
-          <motion.div
-            className="bg-white/5 p-8 rounded-2xl border border-white/10"
-            variants={itemVariants}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Let's build the future together! 🚀
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Whether you have a groundbreaking project idea, need technical
-              expertise, or just want to connect over tech - I'm always excited
-              to explore new possibilities.
-            </p>
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    {item.icon}
+        <motion.div
+          className="bg-white/5 p-8 rounded-2xl border border-white/10"
+          variants={itemVariants}
+        >
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Let's build the future together! 🚀
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Whether you have a groundbreaking project idea, need technical
+                expertise, or just want to connect over tech - I'm always excited
+                to explore new possibilities.
+              </p>
+              <div className="space-y-6">
+                {contactInfo.map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.detail}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-white">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.detail}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </motion.div>
 
-          <motion.div
-            className="bg-white/5 p-8 rounded-2xl border border-white/10"
-            variants={itemVariants}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              Send me a message 💌
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              I typically respond within 24 hours
-            </p>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                Send me a message 💌
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                I typically respond within 24 hours
+              </p>
 
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="fullName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Sudeera Dilshan"
-                            {...field}
-                            className="bg-transparent border-white/20 focus:border-white/50"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="sudeeradilshan166@gmail.com"
-                            {...field}
-                            className="bg-transparent border-white/20 focus:border-white/50"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Subject</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Let's work together!"
-                          {...field}
-                          className="bg-transparent border-white/20 focus:border-white/50"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Hello! I'd like to discuss a potential project with you..."
-                          {...field}
-                          className="bg-transparent border-white/20 focus:border-white/50 min-h-[120px]"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button
-                  type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600 text-black font-bold text-base py-6"
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-6"
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
-              </form>
-            </Form>
-          </motion.div>
-        </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="fullName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Full Name</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Sudeera Dilshan"
+                              {...field}
+                              className="bg-transparent border-white/20 focus:border-white/50"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email Address</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="sudeeradilshan166@gmail.com"
+                              {...field}
+                              className="bg-transparent border-white/20 focus:border-white/50"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Subject</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Let's work together!"
+                            {...field}
+                            className="bg-transparent border-white/20 focus:border-white/50"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Message</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Hello! I'd like to discuss a potential project with you..."
+                            {...field}
+                            className="bg-transparent border-white/20 focus:border-white/50 min-h-[120px]"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <Button
+                    type="submit"
+                    className="w-full bg-green-500 hover:bg-green-600 text-black font-bold text-base py-6"
+                  >
+                    <Send className="mr-2 h-5 w-5" />
+                    Send Message
+                  </Button>
+                </form>
+              </Form>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );
