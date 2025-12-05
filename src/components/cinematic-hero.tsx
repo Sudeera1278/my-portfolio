@@ -146,28 +146,14 @@ const CinematicHero = () => {
           >
             Sudeera Dilshan
           </motion.h1>
-          <div className="flex items-center space-x-4">
-            <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "4rem" }}
-                transition={{ duration: 0.8, delay: 1.8 }}
-                className="h-px bg-white"
-            ></motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.8 }}
-              className="text-xl md:text-2xl text-white"
-            >
-              Full Stack Developer
-            </motion.p>
-            <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "4rem" }}
-                transition={{ duration: 0.8, delay: 1.8 }}
-                className="h-px bg-white"
-            ></motion.div>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
+            className="text-xl md:text-2xl text-white"
+          >
+            Full Stack Developer
+          </motion.p>
         </motion.div>
       </div>
     </section>
