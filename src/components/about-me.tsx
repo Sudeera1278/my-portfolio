@@ -34,7 +34,7 @@ const AboutMe = () => {
   return (
     <motion.section
       id="about"
-      className="w-full py-20 md:py-32"
+      className="w-full py-20 md:py-32 bg-muted/10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
