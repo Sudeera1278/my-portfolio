@@ -23,7 +23,7 @@ const projectsData = [
   },
   {
     title: "Salon Booking System – Backend API",
-    description: "Backend-only appointment scheduling system for salons.",
+    description: "I developed a backend application for managing salon appointments and services using Java Spring Boot. The system allows customers to book appointments while the salon can manage services, staff schedules, and customer details. All data is stored in a MySQL database with proper entity relationships and validations. I created RESTful APIs for all operations and tested them using Postman to ensure reliability and correct functionality. This backend is designed to be scalable and can easily be connected to a web or mobile frontend in the future.",
     technologies: [
       { name: "Spring Boot", icon: <Code /> },
       { name: "Postman", icon: <Webhook /> },
@@ -34,7 +34,7 @@ const projectsData = [
   },
   {
     title: "Polling Vote Application – Fullstack",
-    description: "Real-time voting web application for polls and surveys.",
+    description: "I built a full stack Polling Application where users can create polls, vote on them, and view real-time results. The frontend is developed using React, and the backend is powered by Spring Boot, ensuring smooth communication between user actions and data processing. The system uses a MySQL database to store user data, poll information, and voting results securely. I implemented CRUD APIs for creating polls, submitting votes, and retrieving poll results. User authentication and authorization help to ensure safe voting and prevent duplicate responses. This application is designed to be user-friendly and scalable, supporting future upgrades like analytics and live event polling.",
     technologies: [
       { name: "React", icon: <Code /> },
       { name: "Spring Boot", icon: <Code /> },
@@ -45,7 +45,7 @@ const projectsData = [
   },
   {
     title: "BloodLink – Mobile Application",
-    description: "Mobile app for blood donation requests and donor connections.",
+    description: "I developed the backend for BloodLink, a system built to support emergency blood requests and donor coordination. The backend is implemented using Java Spring Boot, providing secure and scalable REST APIs for managing all system features. The application allows users and hospitals to create urgent blood requests, while registered donors can respond when they match the required blood group. Data such as donor profiles, blood requests, and availability is stored in MongoDB Atlas, a cloud-based NoSQL database for fast access and flexible data modeling. All API endpoints were tested using Postman to ensure proper validation, clear responses, and smooth integration with the mobile application frontend.",
     technologies: [
       { name: "Spring Boot (API)", icon: <Code /> },
       { name: "React Native (Mobile)", icon: <Smartphone /> },

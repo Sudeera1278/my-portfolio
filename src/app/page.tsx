@@ -2,6 +2,7 @@ import AboutMe from "@/components/about-me";
 import CinematicHero from "@/components/cinematic-hero";
 import Contact from "@/components/contact";
 import Education from "@/components/education";
+import Experience from "@/components/experience";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Projects from "@/components/projects";
@@ -17,6 +18,7 @@ export default function Home() {
         <Projects />
         <TechStack />
         <Education />
+        <Experience />
         <Contact />
         <Footer />
       </div>
