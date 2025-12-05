@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <Navbar />
       <CinematicHero />
-      <div className="bg-background">
+      <div className="relative z-10 bg-background">
         <AboutMe />
         <Projects />
         <TechStack />
