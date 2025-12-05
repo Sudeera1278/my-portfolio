@@ -12,9 +12,9 @@ export default function Home() {
       <CinematicHero />
       <div className="relative z-10 bg-background">
         <AboutMe />
-        <Education />
         <Projects />
         <TechStack />
+        <Education />
       </div>
     </main>
   );
