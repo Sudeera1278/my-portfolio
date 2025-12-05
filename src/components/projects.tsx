@@ -11,7 +11,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 const projectsData = [
   {
     title: "InternLink – Fullstack Web App",
-    description: "An internship management and student-company connection platform.",
+    description: "InternLink – A Flutter-Based Mobile & Web Application for Connecting Students with Companies InternLink is a cross-platform solution designed to connect students with companies offering internships. The mobile app, built using Flutter, provides a smooth and intuitive experience for students to create profiles, upload resumes, browse and apply for internships, and track applications. Companies can post and manage opportunities through a dedicated dashboard. The app is powered by Firebase Authentication for secure sign-in and sign-up, and uses Firebase Firestore and Cloud Storage for real-time data handling and file management. This project demonstrates strong skills in Flutter development, Firebase integration, and building scalable, user-focused applications.",
     technologies: [
       { name: "React", icon: <Code /> },
       { name: "Spring Boot", icon: <Code /> },

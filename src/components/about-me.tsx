@@ -47,8 +47,8 @@ const AboutMe = () => {
                 <Image
                   src={profileImage.imageUrl}
                   alt={profileImage.description}
-                  width={400}
-                  height={400}
+                  width={500}
+                  height={500}
                   className="rounded-full object-cover aspect-square"
                   data-ai-hint={profileImage.imageHint}
                 />

@@ -3,21 +3,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { School } from "lucide-react";
+import { Result } from "postcss";
 
 const educationData = [
   {
-    degree: "B.Sc. (Hons) in Computer Science",
-    institution: "University of Colombo School of Computing",
-    duration: "2020 - 2024",
+    degree: "Bachelor of Information and Communication Technology (Hons)",
+    institution: "University of Sri Jayewardenepura",
+    duration: "2022 presen",
     description:
       "Focused on software engineering, data structures, algorithms, and web development. Engaged in various projects and research activities.",
   },
   {
     degree: "G.C.E. Advanced Level (A/L)",
-    institution: "Richmond College, Galle",
-    duration: "2016 - 2018",
+    Result:"A A B",
+    institution: "Central College, Galnewa",
+    duration: "2018 - 2021",
     description:
-      "Studied in the physical science stream, building a strong foundation in mathematics and logical reasoning.",
+      "Studied in the Technology stream, building a strong foundation in mathematics and logical reasoning.",
   },
 ];
 
