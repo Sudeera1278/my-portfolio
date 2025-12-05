@@ -116,7 +116,7 @@ const CinematicHero = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="flex flex-col items-center space-y-4"
         >
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 -ml-4">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "4rem" }}
