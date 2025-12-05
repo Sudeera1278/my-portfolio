@@ -6,18 +6,16 @@ import { Briefcase } from "lucide-react";
 
 const experienceData = [
   {
-    role: "Software Engineer Intern",
-    company: "Creative Software",
-    duration: "2024 July - present",
+    role: "BackEnd Developer (Java Spring Boot)",
+    duration: "2024 present",
     description:
-      "Contributed to the development of a web-based project management tool using React and Node.js. Implemented new features and resolved bugs to improve application performance and user experience.",
+      "Developing secure and efficient backend systems using Spring Boot. Experienced in building REST APIs, connecting databases, and testing backend functionality.",
   },
   {
-    role: "Freelance Web Developer",
-    company: "Self-employed",
-    duration: "2023 - present",
+    role: "UI/UX Designer (Figma)",
+    duration: "2023 -present",
     description:
-      "Designed and developed custom websites for small businesses, focusing on responsive design and SEO best practices. Managed client communication, project timelines, and deliverables.",
+      "Translating ideas into intuitive visual designs using Figma. Improving user interaction through wireframes, prototypes, and test-driven design decisions.",
   },
 ];
 

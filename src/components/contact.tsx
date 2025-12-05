@@ -94,7 +94,7 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="w-full py-20 md:py-32 bg-muted/10"
+      className="w-full py-20 md:py-32"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
