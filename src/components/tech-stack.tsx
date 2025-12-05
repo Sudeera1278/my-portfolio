@@ -2,11 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Code, Server, Database, Cloud, Palette, Terminal } from "lucide-react";
+import { Code, Server, Database, Cloud, Terminal } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-// SVG Icons for technologies
+// SVG Icons for technologies - It's better to keep these as they are small and self-contained
 const TSIcon = () => <svg viewBox="0 0 128 128"><rect width="128" height="128" rx="32" fill="#3178c6"></rect><path fill="#fff" d="M93.32 54.72h-17.4V37.32h-11.4v17.4H47.12v11.4h17.4v17.4h11.4V66.12h17.4Z M42.32 87.32l-5.6-5.6 15.6-15.6-15.6-15.6 5.6-5.6 15.6 15.6 15.6-15.6 5.6 5.6-15.6 15.6 15.6 15.6-5.6 5.6-15.6-15.6Z"></path></svg>;
 const JSIcon = () => <svg viewBox="0 0 128 128"><rect width="128" height="128" fill="#f7df1e"></rect><path d="M64 100.2c-15.2 0-27.6-12.4-27.6-27.6S48.8 45 64 45c15.2 0 27.6 12.4 27.6 27.6S79.2 100.2 64 100.2zm0-47.2c-10.8 0-19.6 8.8-19.6 19.6s8.8 19.6 19.6 19.6 19.6-8.8 19.6-19.6-8.8-19.6-19.6-19.6z"></path><path d="M43.8 83.2H55c.7 2.4 2.4 3.6 4.9 3.6 2.3 0 3.7-1.1 3.7-2.7 0-1.8-1.3-2.5-4.4-3.5L56 79.5c-4.8-1.5-8-4.1-8-9.1 0-4.6 3.5-8.2 8.9-8.2 4.7 0 7.8 2.5 9.1 6.3l-10.3 4.4c-.4-1.3-.9-1.9-2.1-1.9-.9 0-1.5.5-1.5 1.3 0 1 .5 1.5 3 2.1l3.2 1c5.6 1.8 8.9 4.3 8.9 9.5 0 5.3-3.9 8.9-10.1 8.9-6.3 0-9.7-3.2-11-7.2zm27.2-21.4c-3.1 0-5.4 1.8-6.4 4.1l11.1 4.6c-.1-5.1-3.6-8.7-4.7-8.7zm-6.6 12.3l-11.4-4.7c.3 6.3 4.3 9.4 10.3 9.4 3.7 0 6.5-1.5 8.2-4.1.1-.1 0-.3-1.4-3.1l-5.7 2.5z"></path></svg>;
 const PythonIcon = () => <svg viewBox="0 0 128 128"><g fill="#3776ab"><path d="M64 10A54 54 0 0 0 10 64a54 54 0 0 0 54 54z"></path></g><g fill="#ffc331"><path d="M64 118A54 54 0 0 0 118 64a54 54 0 0 0-54-54z"></path></g><g fill="#fff"><path d="M79.5 76.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0zM48.5 51.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0z"></path><path d="M41 98.4V73a4.5 4.5 0 0 1 4.5-4.5h33a4.5 4.5 0 0 0 4.5-4.5V29.6a4.5 4.5 0 0 1 9 0V64a13.5 13.5 0 0 1-13.5 13.5h-33A13.5 13.5 0 0 0 32 89.9v8.5a4.5 4.5 0 0 1 9 0z"></path></g></svg>;
@@ -26,54 +25,24 @@ const AzureIcon = () => <svg viewBox="0 0 128 128"><path fill="#0078d4" d="M79.5
 const GoogleCloudIcon = () => <svg viewBox="0 0 128 128"><path fill="#4285F4" d="M96.5 64c0-14.8-10.4-27.4-24.2-31.5-2.2-.6-4.5-1-6.8-1-10.2 0-19.3 4.2-25.9 10.9-4.8 4.8-7.9 11.2-8.5 18.2H12.5c.6-8.5 4.5-16.2 10.3-22.1 6.8-6.8 15.6-10.8 25.1-11.4 1.9-.1 3.8-.2 5.6-.2 6.5 0 12.8 1.4 18.6 4.1 10.3 4.7 18.4 13.3 22.1 24.2.3.8.5 1.5.7 2.3h16.1z"/><path fill="#FBBC05" d="M37.9 96.6c4.8 4.8 11.2 7.9 18.2 8.5h18.6c14.8 0 27.4-10.4 31.5-24.2.6-2.2 1-4.5 1-6.8 0-10.2-4.2-19.3-10.9-25.9-4.8-4.8-11.2-7.9-18.2-8.5H57.5c-.7 8.5-4.5 16.2-10.3 22.1-6.8 6.8-15.6 10.8-25.1 11.4-1.9.1-3.8.2-5.6.2-1.3 0-2.6 0-3.9-.1v18.6c0 1.9.1 3.8.2 5.6z"/><path fill="#34A853" d="M64.5 73.1c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5c6.2 0 11.2-5 11.2-11.2s-5-11.2-11.2-11.2c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5c9.9 0 18.2 8.1 18.2 18.2s-8.2 18.2-18.2 18.2z"/><path fill="#EA4335" d="M64 64c0 1.9-1.6 3.5-3.5 3.5H42.3c-9.9 0-18.2-8.1-18.2-18.2 0-9.9 8.1-18.2 18.2-18.2h18.2c1.9 0 3.5 1.6 3.5 3.5s-1.6 3.5-3.5 3.5H42.3c-6.2 0-11.2 5-11.2 11.2s5 11.2 11.2 11.2H60.5c1.9 0 3.5 1.6 3.5 3.5z"/></svg>;
 
 
-const techSkills = [
-  {
-    category: "Languages",
-    icon: <Code className="h-6 w-6" />,
-    skills: [
-      { name: "TypeScript", icon: <TSIcon /> },
-      { name: "JavaScript", icon: <JSIcon /> },
-      { name: "Python", icon: <PythonIcon /> },
-      { name: "Java", icon: <JavaIcon /> },
-      { name: "C#", icon: <CSharpIcon /> },
-      { name: "PHP", icon: <PHPIcon /> },
-      { name: "C", icon: <CIcon /> },
-    ],
-  },
-  {
-    category: "Frameworks & Libraries",
-    icon: <Server className="h-6 w-6" />,
-    skills: [
-      { name: "React", icon: <ReactIcon /> },
-      { name: "Spring Boot", icon: <SpringBootIcon /> },
-    ],
-  },
-  {
-    category: "Databases",
-    icon: <Database className="h-6 w-6" />,
-    skills: [
-      { name: "PostgreSQL", icon: <PostgreSQLIcon /> },
-      { name: "MySQL", icon: <MySQLIcon /> },
-    ],
-  },
-  {
-    category: "DevOps & Cloud",
-    icon: <Cloud className="h-6 w-6" />,
-    skills: [
-      { name: "Docker", icon: <DockerIcon /> },
-      { name: "AWS", icon: <AWSIcon /> },
-      { name: "Azure", icon: <AzureIcon /> },
-      { name: "Google Cloud", icon: <GoogleCloudIcon /> },
-    ],
-  },
-  {
-    category: "Tools",
-    icon: <Terminal className="h-6 w-6" />,
-    skills: [
-      { name: "Linux", icon: <LinuxIcon /> },
-      { name: "Figma", icon: <FigmaIcon /> },
-    ],
-  },
+const allSkills = [
+  { name: "TypeScript", icon: <TSIcon /> },
+  { name: "JavaScript", icon: <JSIcon /> },
+  { name: "Python", icon: <PythonIcon /> },
+  { name: "Java", icon: <JavaIcon /> },
+  { name: "C#", icon: <CSharpIcon /> },
+  { name: "PHP", icon: <PHPIcon /> },
+  { name: "C", icon: <CIcon /> },
+  { name: "React", icon: <ReactIcon /> },
+  { name: "Spring Boot", icon: <SpringBootIcon /> },
+  { name: "PostgreSQL", icon: <PostgreSQLIcon /> },
+  { name: "MySQL", icon: <MySQLIcon /> },
+  { name: "Docker", icon: <DockerIcon /> },
+  { name: "AWS", icon: <AWSIcon /> },
+  { name: "Azure", icon: <AzureIcon /> },
+  { name: "Google Cloud", icon: <GoogleCloudIcon /> },
+  { name: "Linux", icon: <LinuxIcon /> },
+  { name: "Figma", icon: <FigmaIcon /> },
 ];
 
 const containerVariants = {
@@ -81,18 +50,16 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
       duration: 0.5,
       ease: "easeOut",
@@ -104,7 +71,7 @@ const TechStack = () => {
   return (
     <motion.section
       id="skills"
-      className="w-full py-20 md:py-32 bg-background"
+      className="w-full py-20 md:py-32 bg-background overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
@@ -120,36 +87,26 @@ const TechStack = () => {
           </h2>
           <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
         </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-        >
-          {techSkills.map((category) => (
-            <motion.div key={category.category} variants={itemVariants}>
-              <Card className="bg-white/5 backdrop-blur-sm border border-white/10 h-full
-                               hover:shadow-lg hover:shadow-white/5 hover:-translate-y-1 transition-all duration-300">
-                <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                  <div className="text-white/70">{category.icon}</div>
-                  <CardTitle className="text-xl text-white">{category.category}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge
-                      key={skill.name}
-                      variant="secondary"
-                      className="bg-white/10 text-white flex items-center gap-2 text-sm px-3 py-1"
-                    >
-                      <div className="w-5 h-5">{skill.icon}</div>
-                      <span>{skill.name}</span>
-                    </Badge>
-                  ))}
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
+
+      <motion.div
+        className="relative w-full"
+        variants={itemVariants}
+      >
+        <div className="flex animate-marquee-rtl space-x-8">
+          {[...allSkills, ...allSkills].map((skill, index) => (
+            <div key={index} className="flex-shrink-0 flex flex-col items-center justify-center space-y-2">
+              <div className="w-24 h-24 p-4 bg-white/5 rounded-full flex items-center justify-center
+                              transition-all duration-300 hover:bg-white/10 hover:scale-110">
+                <div className="w-full h-full">
+                  {skill.icon}
+                </div>
+              </div>
+              <span className="text-sm text-muted-foreground">{skill.name}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </motion.section>
   );
 };
