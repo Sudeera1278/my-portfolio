@@ -1,6 +1,8 @@
 import AboutMe from "@/components/about-me";
 import CinematicHero from "@/components/cinematic-hero";
+import Contact from "@/components/contact";
 import Education from "@/components/education";
+import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Projects from "@/components/projects";
 import TechStack from "@/components/tech-stack";
@@ -15,6 +17,8 @@ export default function Home() {
         <Projects />
         <TechStack />
         <Education />
+        <Contact />
+        <Footer />
       </div>
     </main>
   );
