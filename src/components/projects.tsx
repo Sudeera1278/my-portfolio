@@ -75,7 +75,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="w-full py-20 md:py-32 bg-background"
+      className="w-full py-20 md:py-32"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

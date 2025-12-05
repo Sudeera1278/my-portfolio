@@ -9,9 +9,11 @@ export default function Home() {
     <main>
       <Navbar />
       <CinematicHero />
-      <AboutMe />
-      <Projects />
-      <TechStack />
+      <div className="bg-background">
+        <AboutMe />
+        <Projects />
+        <TechStack />
+      </div>
     </main>
   );
 }
