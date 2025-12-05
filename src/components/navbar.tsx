@@ -19,7 +19,7 @@ const Navbar = () => {
           className="flex items-center gap-2 text-lg font-bold text-white"
           prefetch={false}
         >
-          <span>Portfolio</span>
+          <span>Sudeera Dilshan</span>
         </Link>
         <nav className="hidden md:flex items-center gap-2">
           <Button variant="link" asChild className="text-white">
@@ -50,7 +50,7 @@ const Navbar = () => {
                 prefetch={false}
                 onClick={closeSheet}
               >
-                <span>Portfolio</span>
+                <span>Sudeera Dilshan</span>
               </Link>
               <nav className="grid gap-2">
                 <Button variant="ghost" asChild onClick={closeSheet}>
