@@ -1,11 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const AboutMe = () => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
 
   const containerVariants = {
@@ -43,7 +48,7 @@ const AboutMe = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div variants={itemVariants} className="flex justify-center">
-            {profileImage && (
+            {isMounted && profileImage && (
                 <Image
                   src={profileImage.imageUrl}
                   alt={profileImage.description}
