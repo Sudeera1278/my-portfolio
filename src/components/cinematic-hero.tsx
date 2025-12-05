@@ -34,16 +34,16 @@ const CinematicHero = () => {
         events: {
           onHover: {
             enable: true,
-            mode: "bubble",
+            mode: "grab",
           },
           resize: true,
         },
         modes: {
-          bubble: {
+          grab: {
             distance: 200,
-            duration: 2,
-            opacity: 1,
-            size: 3,
+            links: {
+              opacity: 0.8
+            }
           },
         },
       },
@@ -52,16 +52,23 @@ const CinematicHero = () => {
           value: "#ffffff",
         },
         links: {
-          enable: false,
+          color: "#ffffff",
+          distance: 150,
+          enable: true,
+          opacity: 0.2,
+          width: 1,
+        },
+        collisions: {
+          enable: true,
         },
         move: {
           direction: "none",
           enable: true,
           outModes: {
-            default: "out",
+            default: "bounce",
           },
-          random: true,
-          speed: 0.1,
+          random: false,
+          speed: 0.5,
           straight: false,
         },
         number: {
@@ -69,21 +76,16 @@ const CinematicHero = () => {
             enable: true,
             area: 800,
           },
-          value: 120,
+          value: 80,
         },
         opacity: {
-          value: { min: 0.1, max: 0.4 },
-          animation: {
-            enable: true,
-            speed: 0.5,
-            sync: false,
-          },
+          value: 0.2,
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 2.5 },
+          value: { min: 1, max: 3 },
         },
       },
       detectRetina: true,
