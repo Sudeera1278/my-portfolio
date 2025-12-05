@@ -62,12 +62,12 @@ const contactInfo = [
   {
     icon: <Phone className="h-5 w-5 text-white" />,
     title: "Phone",
-    detail: "+94 74 357 2773",
+    detail: "+94 77 086 8451",
   },
   {
     icon: <MapPin className="h-5 w-5 text-white" />,
     title: "Location",
-    detail: "Malabe, Sri Lanka",
+    detail: "Homagama, Sri Lanka",
   },
 ];
 
@@ -85,7 +85,7 @@ const Contact = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Sent! 🚀",
+      title: "Message Sent! ",
       description: "Thanks for reaching out. I'll get back to you soon.",
     });
     form.reset();
@@ -94,7 +94,7 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="w-full py-20 md:py-32 bg-muted/10"
+      className="w-full py-20 md:py-32"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -102,12 +102,21 @@ const Contact = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
+          className="flex flex-col items-center text-center mb-16"
+          variants={itemVariants}
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+            Get In Touch
+          </h2>
+          <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
+        </motion.div>
+        <motion.div
           className="grid lg:grid-cols-2 gap-12"
           variants={itemVariants}
         >
           <div className="space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Let's build the future together! 🚀
+              Let's build the future together!
             </h2>
             <p className="text-muted-foreground">
               Whether you have a groundbreaking project idea, need technical
