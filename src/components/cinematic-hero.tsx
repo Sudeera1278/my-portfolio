@@ -154,6 +154,12 @@ const CinematicHero = () => {
           >
             Full Stack Developer
           </motion.p>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "8rem" }}
+            transition={{ duration: 0.8, delay: 2.0 }}
+            className="h-px bg-white mt-4"
+          ></motion.div>
         </motion.div>
       </div>
     </section>

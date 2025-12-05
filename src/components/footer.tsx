@@ -12,13 +12,15 @@ const Footer = () => {
           © {new Date().getFullYear()} Sudeera Dilshan. All Rights Reserved.
         </p>
         <div className="flex items-center space-x-4">
-          <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
+          <Link href="https://github.com/Sudeera1278" className="text-muted-foreground hover:text-white transition-colors">
             <Github className="h-5 w-5" />
           </Link>
-          <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
+          <Link href="https://www.linkedin.com/in/sudeera-dilshan-0a71b927a/"
+
+ className="text-muted-foreground hover:text-white transition-colors">
             <Linkedin className="h-5 w-5" />
           </Link>
-          <Link href="#" className="text-muted-foreground hover:text-white transition-colors">
+          <Link href="" className="text-muted-foreground hover:text-white transition-colors">
             <Twitter className="h-5 w-5" />
           </Link>
         </div>
