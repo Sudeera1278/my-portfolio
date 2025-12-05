@@ -71,7 +71,7 @@ const TechStack = () => {
   return (
     <motion.section
       id="skills"
-      className="w-full py-20 md:py-32 overflow-hidden"
+      className="w-full py-20 md:py-32 overflow-hidden bg-muted/10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
@@ -112,3 +112,5 @@ const TechStack = () => {
 };
 
 export default TechStack;
+
+    
