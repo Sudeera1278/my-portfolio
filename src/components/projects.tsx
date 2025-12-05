@@ -82,12 +82,15 @@ const Projects = () => {
       variants={containerVariants}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center mb-12 text-white"
+        <motion.div
+          className="flex flex-col items-center text-center mb-16"
           variants={itemVariants}
         >
-          Projects
-        </motion.h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+            Projects
+          </h2>
+          <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
+        </motion.div>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
