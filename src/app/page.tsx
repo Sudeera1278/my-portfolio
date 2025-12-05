@@ -17,7 +17,9 @@ export default function Home() {
         <Projects />
         <TechStack />
         <Education />
-        <Contact />
+        <div className="bg-muted/10">
+          <Contact />
+        </div>
         <Footer />
       </div>
     </main>
