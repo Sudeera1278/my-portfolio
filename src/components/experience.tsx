@@ -86,7 +86,7 @@ const Experience = () => {
               <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full hover:border-white/20 transition-colors duration-300">
                 <p className="text-sm text-muted-foreground mb-1">{exp.duration}</p>
                 <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
-                <h4 className="font-semibold text-white/80 mb-3">{exp.company}</h4>
+                
                 <p className="text-muted-foreground">{exp.description}</p>
               </div>
             </motion.div>
