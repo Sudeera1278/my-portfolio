@@ -35,7 +35,7 @@ const Footer = () => {
           <Link href="" className="text-muted-foreground hover:text-white transition-colors">
             <Twitter className="h-5 w-5" />
           </Link>
-          <Link href="" className="text-muted-foreground hover:text-white transition-colors">
+          <Link href="https://medium.com/@sudeeradilshan166" className="text-muted-foreground hover:text-white transition-colors">
             <MediumIcon />
           </Link>
         </div>

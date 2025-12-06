@@ -17,6 +17,12 @@ const experienceData = [
     description:
       "Translating ideas into intuitive visual designs using Figma. Improving user interaction through wireframes, prototypes, and test-driven design decisions.",
   },
+  {
+    role: "Content Publisher (Medium)",
+    duration: "2024 -present",
+    description:
+      "Writing informative articles about software development and technology to share knowledge with the community.",
+  },
 ];
 
 const containerVariants = {

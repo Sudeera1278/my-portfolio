@@ -75,11 +75,7 @@ const AboutMe = () => {
               variants={itemVariants}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed"
             >
-              I am a passionate Software Engineer focused on creating fast,
-              secure, and user-friendly web applications. I enjoy turning complex
-              problems into simple, beautiful, and functional digital solutions.
-              Currently exploring advanced web security, cloud technologies, and
-              modern UI animations to bring ideas to life with real-world impact.
+              I am a passionate Full Stack Developer who enjoys building secure, fast, and user-friendly web applications. I love turning ideas into real digital products using modern technologies. My focus is on writing clean code, improving performance, and creating meaningful user experiences through both frontend and backend development. I am always learning new skills to grow as a developer.
             </motion.p>
           </div>
         </div>
