@@ -18,7 +18,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-        <link rel="icon" type="image/png" href="https://i.imgur.com/u8ZxlHD.png" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="font-body antialiased">
         {children}
