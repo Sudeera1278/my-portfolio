@@ -93,19 +93,21 @@ const CinematicHero = () => {
     []
   );
 
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <section
       className="relative w-full h-screen bg-background overflow-hidden"
     >
-      {isMounted && (
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          loaded={particlesLoaded}
-          options={particleOptions}
-          className="absolute inset-0 z-0"
-        />
-      )}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={particleOptions}
+        className="absolute inset-0 z-0"
+      />
 
       <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-background via-background/30 to-transparent z-20"></div>
 
