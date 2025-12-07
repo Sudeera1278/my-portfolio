@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import Particles, { IOptions, RecursivePartial } from "react-tsparticles";
-import type { Container, Engine } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
+import Particles, { IOptions, RecursivePartial } from "@tsparticles/react";
+import type { Container, Engine } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 
 const CinematicHero = () => {
   const [isMounted, setIsMounted] = useState(false);
