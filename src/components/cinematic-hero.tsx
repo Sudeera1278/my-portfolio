@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import Particles, { IOptions, RecursivePartial } from "@tsparticles/react";
+import Particles, { type IOptions, type RecursivePartial } from "@tsparticles/react";
 import type { Container, Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
