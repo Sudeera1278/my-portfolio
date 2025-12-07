@@ -2,25 +2,20 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import Particles, { type IOptions, type RecursivePartial } from "@tsparticles/react";
-import type { Container, Engine } from "@tsparticles/engine";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import type { IOptions, RecursivePartial } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 const CinematicHero = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
   }, []);
-
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {},
-    []
-  );
 
   const particleOptions: RecursivePartial<IOptions> = useMemo(
     () => ({
@@ -93,7 +88,7 @@ const CinematicHero = () => {
     []
   );
 
-  if (!isMounted) {
+  if (!init) {
     return null;
   }
 
@@ -103,8 +98,6 @@ const CinematicHero = () => {
     >
       <Particles
         id="tsparticles"
-        init={particlesInit}
-        loaded={particlesLoaded}
         options={particleOptions}
         className="absolute inset-0 z-0"
       />
