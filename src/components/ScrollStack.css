@@ -1,0 +1,24 @@
+.scroll-stack-scroller {
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.scroll-stack-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 50vh;
+}
+
+.scroll-stack-card {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: sticky;
+  top: 15vh;
+}
+
+.scroll-stack-end {
+  height: 50vh;
+}

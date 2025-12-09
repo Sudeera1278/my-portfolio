@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
+import ScrollStack, { ScrollStackItem } from "./ScrollStack";
 
 const experienceData = [
   {
@@ -55,7 +56,7 @@ const Experience = () => {
       className="w-full py-20 md:py-32 bg-muted/10"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -69,29 +70,24 @@ const Experience = () => {
           <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
         </motion.div>
 
-        <motion.div
-          className="relative max-w-3xl mx-auto"
-          variants={containerVariants}
-        >
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-white/10" />
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="relative pl-12 mb-12 flex items-start"
-              variants={itemVariants}
-            >
-              <div className="absolute left-4 top-1 w-8 h-8 -translate-x-1/2 bg-background border-2 border-white/20 rounded-full flex items-center justify-center">
-                <Briefcase className="w-4 h-4 text-white" />
-              </div>
-              <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full hover:border-white/20 transition-colors duration-300">
-                <p className="text-sm text-muted-foreground mb-1">{exp.duration}</p>
-                <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
-                
-                <p className="text-muted-foreground">{exp.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="relative h-[150vh]">
+          <ScrollStack useWindowScroll>
+            {experienceData.map((exp, index) => (
+              <ScrollStackItem key={index}>
+                  <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full transition-colors duration-300">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="bg-background border-2 border-white/20 rounded-full flex items-center justify-center p-2">
+                        <Briefcase className="w-4 h-4 text-white" />
+                      </div>
+                      <p className="text-sm text-muted-foreground">{exp.duration}</p>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
+                    <p className="text-muted-foreground">{exp.description}</p>
+                  </div>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        </div>
       </div>
     </motion.section>
   );
