@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LightRays from "./light-rays";
+import GradientText from "./GradientText";
+import './GradientText.css';
 
 const CinematicHero = () => {
   return (
@@ -60,9 +62,11 @@ const CinematicHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5 }}
-            className="text-5xl md:text-7xl font-bold text-white tracking-wider"
+            className="text-5xl md:text-7xl font-bold tracking-wider"
           >
-            Sudeera Dilshan
+            <GradientText>
+              Sudeera Dilshan
+            </GradientText>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
