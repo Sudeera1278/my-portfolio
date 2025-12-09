@@ -81,8 +81,8 @@ const Experience = () => {
           variants={itemVariants}
         >
           <CardSwap
-            width={600}
-            height={250}
+            width={700}
+            height={300}
             cardDistance={40}
             verticalDistance={15}
             delay={3000}
@@ -90,7 +90,7 @@ const Experience = () => {
           >
             {experienceData.map((exp) => (
               <Card key={exp.id}>
-                 <div className="p-0 md:p-6">
+                 <div className="p-6 md:p-8">
                     <div className="flex items-start gap-4">
                         <div className="bg-white/10 p-3 rounded-lg hidden md:block">
                             {exp.icon}
