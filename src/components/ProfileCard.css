@@ -1,0 +1,217 @@
+:root {
+  --pc-scale: 1;
+}
+
+.pc-card-wrapper {
+  position: relative;
+  width: 400px;
+  height: 550px;
+  transform: scale(var(--pc-scale));
+}
+
+.pc-behind {
+  position: absolute;
+  inset: 0;
+  background-color: var(--behind-glow-color);
+  border-radius: 50%;
+  width: var(--behind-glow-size);
+  height: var(--behind-glow-size);
+  margin: auto;
+  filter: blur(80px) saturate(1.4);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.pc-card-shell.active .pc-behind {
+  opacity: 1;
+}
+
+.pc-card-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  transition: transform 0.18s ease-out;
+}
+
+.pc-card-shell.entering {
+  transition: none;
+}
+
+.pc-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: translateZ(var(--translate-z, 0)) rotateX(var(--rotate-x, 0))
+    rotateY(var(--rotate-y, 0));
+  background-image: var(--inner-gradient), var(--grain);
+  background-size: 200% 200%, 300px 300px;
+  background-position: var(--background-x) var(--background-y), 0 0;
+  transition: transform 0.1s ease-out;
+}
+
+.pc-card-shell.active .pc-card {
+  --translate-z: 45px;
+}
+
+.pc-inside {
+  position: absolute;
+  inset: 1px;
+  border-radius: 23px;
+  background: #100f1c;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.pc-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0) 40%
+  );
+  opacity: var(--pointer-from-center, 0);
+  transition: opacity 0.2s ease-out;
+}
+
+.pc-card-shell.active .pc-shine {
+  opacity: calc(var(--pointer-from-center) * 0.9);
+}
+
+.pc-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateZ(1px)
+    skewX(calc((var(--pointer-from-center) * var(--pointer-from-left) - 0.5) * -16deg))
+    skewY(calc((var(--pointer-from-center) * var(--pointer-from-top) - 0.5) * 10deg));
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.pc-card-shell.active .pc-glare {
+  opacity: calc(var(--pointer-from-center) * 0.9);
+}
+
+.pc-content {
+  padding: 24px;
+  position: relative;
+}
+
+.pc-avatar-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 24px;
+  transform: translateZ(50px) scale(1.05);
+}
+
+.pc-user-info {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateZ(20px);
+}
+
+.pc-user-details {
+  display: flex;
+  align-items: center;
+}
+
+.pc-mini-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.pc-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pc-user-text .pc-handle {
+  font-weight: 600;
+  color: #fff;
+}
+
+.pc-user-text .pc-status {
+  font-size: 0.8rem;
+  color: #a0a0b0;
+}
+
+.pc-contact-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #8e44ad;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pc-contact-btn:hover {
+  background: #9b59b6;
+}
+
+.pc-details {
+  text-align: center;
+  transform: translateZ(30px);
+}
+
+.pc-details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.pc-details p {
+  font-size: 1rem;
+  color: #c0c0d0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pc-card-wrapper {
+    --pc-scale: 0.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .pc-card-wrapper {
+    --pc-scale: 0.65;
+  }
+}

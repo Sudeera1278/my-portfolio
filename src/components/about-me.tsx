@@ -1,14 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import ProfileCard from "./ProfileCard";
 
 const AboutMe = () => {
-  const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
-  const containerRef = useRef<HTMLElement>(null);
   const aboutText = "I am a passionate Full Stack Developer who enjoys building secure, fast, and user-friendly web applications. I love turning ideas into real digital products using modern technologies. My focus is on writing clean code, improving performance, and creating meaningful user experiences through both frontend and backend development. I am always learning new skills to grow as a developer.";
 
   const containerVariants = {
@@ -37,7 +33,6 @@ const AboutMe = () => {
   return (
     <motion.section
       id="about"
-      ref={containerRef}
       className="w-full py-20 md:py-32 bg-muted/10"
       initial="hidden"
       whileInView="visible"
@@ -47,17 +42,14 @@ const AboutMe = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div variants={itemVariants} className="flex justify-center">
-            {profileImage && (
-              <Card className="w-[350px] h-[450px] md:w-[400px] md:h-[500px] relative overflow-hidden rounded-2xl group">
-                <Image 
-                  src={profileImage.imageUrl}
-                  alt={profileImage.description}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  data-ai-hint={profileImage.imageHint}
-                />
-              </Card>
-            )}
+            <ProfileCard
+              avatarUrl="https://i.imgur.com/u8ZxlHD.png"
+              name="Sudeera Dilshan"
+              title="Full Stack Developer"
+              handle="Sudeera1278"
+              status="Coding the future"
+              miniAvatarUrl="https://i.imgur.com/u8ZxlHD.png"
+            />
           </motion.div>
           <div className="space-y-8 text-left md:text-left">
             <motion.div variants={itemVariants} className="space-y-4">
