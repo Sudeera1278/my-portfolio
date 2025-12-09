@@ -45,7 +45,7 @@ const AboutMe = () => {
       variants={containerVariants}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <motion.div variants={itemVariants} className="flex justify-center">
             {profileImage && (
               <ProfileCard
