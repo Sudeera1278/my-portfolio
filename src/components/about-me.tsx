@@ -50,8 +50,8 @@ const AboutMe = () => {
             {profileImage && (
               <ProfileCard
                 avatarUrl={profileImage.imageUrl}
-                name="Sudeera Dilshan"
-                title="Full Stack Developer"
+                name=""
+                title=""
                 handle="Sudeera1278"
                 status="Coding the future"
                 miniAvatarUrl={profileImage.imageUrl}
