@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Github, Linkedin } from "lucide-react";
 import "./Socials.css";
 
@@ -18,92 +17,50 @@ const MediumIcon = () => (
 
 const socialData = [
   {
+    name: "LinkedIn",
     href: "https://www.linkedin.com/in/sudeera-dilshan-0a71b927a/",
     icon: <Linkedin />,
-    text: "LinkedIn",
-    userInitial: "SD",
-    userName: "Sudeera Dilshan",
-    userHandle: "@sudeera-dilshan",
-    about: "500+ Connections",
-    color: "#4267B2",
+    "data-social": "linkedin",
   },
   {
+    name: "GitHub",
     href: "https://github.com/Sudeera1278",
     icon: <Github />,
-    text: "GitHub",
-    userInitial: "SD",
-    userName: "Sudeera Dilshan",
-    userHandle: "@Sudeera1278",
-    about: "100+ Repositories",
-    color: "#333",
+    "data-social": "github",
   },
   {
+    name: "Medium",
     href: "https://medium.com/@sudeeradilshan166",
     icon: <MediumIcon />,
-    text: "Medium",
-    userInitial: "SD",
-    userName: "Sudeera Dilshan",
-    userHandle: "@sudeeradilshan166",
-    about: "50+ Articles",
-    color: "#000",
+    "data-social": "medium",
   },
 ];
 
-const SocialLink = ({
-  href,
-  icon,
-  text,
-  userInitial,
-  userName,
-  userHandle,
-  about,
-  color,
-}: (typeof socialData)[0]) => {
-    const iconStyle = {
-        color: color,
-        borderColor: color,
-        fill: color,
-    }
-
-    const layerSpanStyle = {
-        borderColor: color
-    }
-    
-    return (
-      <div className="tooltip-container">
-        <div className="tooltip">
-          <div className="profile">
-            <div className="user">
-              <div className="img" style={{borderColor: color, color: '#0A0A0A', background: 'white'}}>{userInitial}</div>
-              <div className="details">
-                <div className="name" style={{color: color}}>{userName}</div>
-                <div className="username">{userHandle}</div>
-              </div>
-            </div>
-            <div className="about">{about}</div>
-          </div>
-        </div>
-        <a className="icon" href={href} target="_blank" rel="noopener noreferrer">
-          <div className="layer">
-            <span style={layerSpanStyle}></span>
-            <span style={layerSpanStyle}></span>
-            <span style={layerSpanStyle}></span>
-            <span style={layerSpanStyle}></span>
-            <span className="fab" style={iconStyle}>{icon}</span>
-          </div>
-          <div className="text" style={{color: '#fff'}}>{text}</div>
-        </a>
-      </div>
-    );
+const SocialLink = ({ name, href, icon, "data-social": dataSocial }: (typeof socialData)[0]) => {
+  return (
+    <li className="icon-content">
+      <a
+        data-social={dataSocial}
+        aria-label={name}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="filled"></div>
+        {icon}
+      </a>
+      <div className="tooltip">{name}</div>
+    </li>
+  );
 };
 
 const Socials = () => {
   return (
-    <div className="social-links-container">
+    <ul className="social-links-container">
       {socialData.map((social) => (
-        <SocialLink key={social.text} {...social} />
+        <SocialLink key={social.name} {...social} />
       ))}
-    </div>
+    </ul>
   );
 };
 
