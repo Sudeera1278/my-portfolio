@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, PanInfo, useMotionValue, useTransform } from 'motion/react';
+import { motion, PanInfo, useMotionValue, useTransform } from 'framer-motion';
 import { Circle, Code, FileText, Layers, Layout } from 'lucide-react';
 import './Carousel.css';
 
