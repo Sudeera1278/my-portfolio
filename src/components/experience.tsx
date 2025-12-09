@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, Code, Pencil } from "lucide-react";
-import CardSwap, { Card } from './CardSwap';
 
 const experienceData = [
   {
@@ -76,36 +75,29 @@ const Experience = () => {
           <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
         </motion.div>
 
-        <motion.div 
-          className="relative flex justify-center items-center h-[350px] md:h-[400px]"
-          variants={itemVariants}
-        >
-          <CardSwap
-            width={700}
-            height={300}
-            cardDistance={40}
-            verticalDistance={15}
-            delay={3000}
-            pauseOnHover={true}
-          >
-            {experienceData.map((exp) => (
-              <Card key={exp.id}>
-                 <div className="p-6 md:p-8">
-                    <div className="flex items-start gap-4">
-                        <div className="bg-white/10 p-3 rounded-lg hidden md:block">
-                            {exp.icon}
-                        </div>
-                        <div>
-                            <p className="text-sm text-muted-foreground mb-1">{exp.duration}</p>
-                            <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
-                        </div>
-                    </div>
-                    <p className="text-muted-foreground mt-4 text-sm md:text-base">{exp.description}</p>
-                 </div>
-              </Card>
-            ))}
-          </CardSwap>
-        </motion.div>
+        <div className="relative max-w-3xl mx-auto">
+          <div className="absolute left-4 top-0 h-full w-0.5 bg-white/10" />
+          {experienceData.map((exp, index) => (
+            <motion.div
+              key={index}
+              className="relative pl-12 mb-12 flex items-start"
+              variants={itemVariants}
+            >
+              <div className="absolute left-4 top-1 w-8 h-8 -translate-x-1/2 bg-background border-2 border-white/20 rounded-full flex items-center justify-center">
+                {exp.icon}
+              </div>
+              <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full hover:border-white/20 transition-colors duration-300">
+                <p className="text-sm text-muted-foreground mb-1">
+                  {exp.duration}
+                </p>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {exp.title}
+                </h3>
+                <p className="text-muted-foreground">{exp.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );
