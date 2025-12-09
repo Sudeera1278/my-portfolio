@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import ProfileCard from "./ProfileCard";
+import { Card } from "@/components/ui/card";
 
 const AboutMe = () => {
   const aboutText = "I am a passionate Full Stack Developer who enjoys building secure, fast, and user-friendly web applications. I love turning ideas into real digital products using modern technologies. My focus is on writing clean code, improving performance, and creating meaningful user experiences through both frontend and backend development. I am always learning new skills to grow as a developer.";
@@ -42,14 +42,7 @@ const AboutMe = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div variants={itemVariants} className="flex justify-center">
-            <ProfileCard
-              avatarUrl="https://i.imgur.com/u8ZxlHD.png"
-              name="Sudeera Dilshan"
-              title="Full Stack Developer"
-              handle="Sudeera1278"
-              status="Coding the future"
-              miniAvatarUrl="https://i.imgur.com/u8ZxlHD.png"
-            />
+            <Card className="w-[350px] h-[500px] bg-cover bg-center rounded-2xl" style={{backgroundImage: "url('https://i.imgur.com/u8ZxlHD.png')"}} />
           </motion.div>
           <div className="space-y-8 text-left md:text-left">
             <motion.div variants={itemVariants} className="space-y-4">
