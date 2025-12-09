@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import "./Socials.css";
 
 const MediumIcon = () => (
@@ -36,16 +36,6 @@ const socialData = [
     userHandle: "@Sudeera1278",
     about: "100+ Repositories",
     color: "#333",
-  },
-  {
-    href: "#",
-    icon: <Twitter />,
-    text: "Twitter",
-    userInitial: "SD",
-    userName: "Sudeera Dilshan",
-    userHandle: "@SudeeraDev",
-    about: "1k+ Followers",
-    color: "#1DA1F2",
   },
   {
     href: "https://medium.com/@sudeeradilshan166",
