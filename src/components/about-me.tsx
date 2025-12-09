@@ -72,7 +72,7 @@ const AboutMe = () => {
             </motion.div>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed"
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed text-justify"
             >
               {aboutText}
             </motion.p>
