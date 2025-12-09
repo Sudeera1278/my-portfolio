@@ -10,7 +10,9 @@ const Footer = () => {
         <p className="text-sm text-muted-foreground mb-4 md:mb-0">
           © {new Date().getFullYear()} Sudeera Dilshan. All Rights Reserved.
         </p>
-        <Socials />
+        <div className="flex items-center gap-4">
+          <Socials />
+        </div>
       </div>
     </footer>
   );
