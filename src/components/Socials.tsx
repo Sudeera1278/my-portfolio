@@ -24,8 +24,8 @@ const socialData = [
     userInitial: "SD",
     userName: "Sudeera Dilshan",
     userHandle: "@sudeera-dilshan",
-    connections: "500+ Connections",
-    hoverBorderColors: ["#4267B2", "#333", "#1DA1F2", "#000"],
+    about: "500+ Connections",
+    color: "#4267B2",
   },
   {
     href: "https://github.com/Sudeera1278",
@@ -34,8 +34,8 @@ const socialData = [
     userInitial: "SD",
     userName: "Sudeera Dilshan",
     userHandle: "@Sudeera1278",
-    connections: "100+ Repositories",
-    hoverBorderColors: ["#333", "#4267B2", "#1DA1F2", "#000"],
+    about: "100+ Repositories",
+    color: "#333",
   },
   {
     href: "#",
@@ -44,8 +44,8 @@ const socialData = [
     userInitial: "SD",
     userName: "Sudeera Dilshan",
     userHandle: "@SudeeraDev",
-    connections: "1k+ Followers",
-    hoverBorderColors: ["#1DA1F2", "#4267B2", "#333", "#000"],
+    about: "1k+ Followers",
+    color: "#1DA1F2",
   },
   {
     href: "https://medium.com/@sudeeradilshan166",
@@ -54,8 +54,8 @@ const socialData = [
     userInitial: "SD",
     userName: "Sudeera Dilshan",
     userHandle: "@sudeeradilshan166",
-    connections: "50+ Articles",
-    hoverBorderColors: ["#000", "#1DA1F2", "#4267B2", "#333"],
+    about: "50+ Articles",
+    color: "#000",
   },
 ];
 
@@ -66,38 +66,46 @@ const SocialLink = ({
   userInitial,
   userName,
   userHandle,
-  connections,
-  hoverBorderColors,
-}: (typeof socialData)[0]) => (
-  <div className="tooltip-container">
-    <div className="tooltip">
-      <div className="profile">
-        <div className="user">
-          <div className="img">{userInitial}</div>
-          <div className="details">
-            <div className="name">{userName}</div>
-            <div className="username">{userHandle}</div>
+  about,
+  color,
+}: (typeof socialData)[0]) => {
+    const iconStyle = {
+        color: color,
+        borderColor: color,
+        fill: color,
+    }
+
+    const layerSpanStyle = {
+        borderColor: color
+    }
+    
+    return (
+      <div className="tooltip-container">
+        <div className="tooltip">
+          <div className="profile">
+            <div className="user">
+              <div className="img" style={{borderColor: color, color: '#0A0A0A', background: 'white'}}>{userInitial}</div>
+              <div className="details">
+                <div className="name" style={{color: color}}>{userName}</div>
+                <div className="username">{userHandle}</div>
+              </div>
+            </div>
+            <div className="about">{about}</div>
           </div>
         </div>
-        <div className="about">{connections}</div>
-      </div>
-    </div>
-    <div className="text">
-      <Link href={href} passHref legacyBehavior>
-        <a className="icon-link icon" target="_blank" rel="noopener noreferrer">
+        <a className="icon" href={href} target="_blank" rel="noopener noreferrer">
           <div className="layer">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span className="fab">{icon}</span>
+            <span style={layerSpanStyle}></span>
+            <span style={layerSpanStyle}></span>
+            <span style={layerSpanStyle}></span>
+            <span style={layerSpanStyle}></span>
+            <span className="fab" style={iconStyle}>{icon}</span>
           </div>
-          <div className="text">{text}</div>
+          <div className="text" style={{color: '#fff'}}>{text}</div>
         </a>
-      </Link>
-    </div>
-  </div>
-);
+      </div>
+    );
+};
 
 const Socials = () => {
   return (
