@@ -1,13 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import ProfileCard from "./ProfileCard";
 import "./ProfileCard.css";
+import VariableProximity from "./VariableProximity";
 
 const AboutMe = () => {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
+  const containerRef = useRef<HTMLElement>(null);
+  const aboutText = "I am a passionate Full Stack Developer who enjoys building secure, fast, and user-friendly web applications. I love turning ideas into real digital products using modern technologies. My focus is on writing clean code, improving performance, and creating meaningful user experiences through both frontend and backend development. I am always learning new skills to grow as a developer.";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -35,6 +38,7 @@ const AboutMe = () => {
   return (
     <motion.section
       id="about"
+      ref={containerRef}
       className="w-full py-20 md:py-32 bg-muted/10"
       initial="hidden"
       whileInView="visible"
@@ -71,7 +75,13 @@ const AboutMe = () => {
               variants={itemVariants}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed"
             >
-              I am a passionate Full Stack Developer who enjoys building secure, fast, and user-friendly web applications. I love turning ideas into real digital products using modern technologies. My focus is on writing clean code, improving performance, and creating meaningful user experiences through both frontend and backend development. I am always learning new skills to grow as a developer.
+              <VariableProximity
+                  label={aboutText}
+                  fromFontVariationSettings="'wght' 300"
+                  toFontVariationSettings="'wght' 900"
+                  containerRef={containerRef}
+                  radius={200}
+                />
             </motion.p>
           </div>
         </div>
