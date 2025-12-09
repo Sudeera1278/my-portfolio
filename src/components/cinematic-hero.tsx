@@ -1,106 +1,120 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { IOptions, RecursivePartial } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
+import { Renderer, Camera, Transform, Program, Mesh, Sphere } from 'ogl';
 
-const CinematicHero = () => {
-  const [init, setInit] = useState(false);
+const vertex = /* glsl */ `
+    attribute vec3 position;
+    attribute vec3 normal;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    uniform float uTime;
+
+    varying vec3 vNormal;
+    varying vec3 vPosition;
+
+    void main() {
+        vNormal = normalize(normal);
+        
+        vec3 pos = position;
+        pos.y += sin(pos.x * 2.0 + uTime * 0.5) * 0.1;
+        pos.x += cos(pos.y * 2.0 + uTime * 0.5) * 0.1;
+        
+        vPosition = pos;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    }
+`;
+
+const fragment = /* glsl */ `
+    precision highp float;
+    uniform float uTime;
+    varying vec3 vNormal;
+    varying vec3 vPosition;
+
+    void main() {
+        vec3 normal = normalize(vNormal);
+        float lighting = dot(normal, normalize(vec3(-0.3, 0.8, 0.6)));
+        
+        vec3 color = vec3(0.1, 0.2, 0.9); // Deep blue base
+        color += (sin(vPosition.y * 5.0 + uTime) * 0.5 + 0.5) * 0.2;
+        color.r += (cos(vPosition.x * 5.0 - uTime) * 0.5 + 0.5) * 0.2;
+        
+        gl_FragColor.rgb = color * (0.5 + lighting * 0.5);
+        gl_FragColor.a = 1.0;
+    }
+`;
+
+
+const OGLScene = () => {
+  const mount = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
+    if (!mount.current) return;
+
+    const renderer = new Renderer({ dpr: 2, alpha: true });
+    const gl = renderer.gl;
+    mount.current.appendChild(gl.canvas);
+
+    const camera = new Camera(gl, { fov: 35 });
+    camera.position.set(0, 1, 5);
+    camera.lookAt([0, 0, 0]);
+
+    function resize() {
+      if(!mount.current) return;
+      renderer.setSize(mount.current.offsetWidth, mount.current.offsetHeight);
+      camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
+    }
+    window.addEventListener('resize', resize, false);
+    resize();
+
+    const scene = new Transform();
+
+    const program = new Program(gl, {
+        vertex,
+        fragment,
+        uniforms: {
+            uTime: { value: 0 },
+        },
     });
+
+    const geometry = new Sphere(gl, { radius: 1, widthSegments: 64, heightSegments: 64 });
+    const mesh = new Mesh(gl, { geometry, program });
+    mesh.setParent(scene);
+
+    let animationFrameId: number;
+
+    const update = (t: number) => {
+        animationFrameId = requestAnimationFrame(update);
+
+        program.uniforms.uTime.value = t * 0.0003;
+        mesh.rotation.y -= 0.005;
+        mesh.rotation.x += 0.002;
+
+        renderer.render({ scene, camera });
+    }
+    animationFrameId = requestAnimationFrame(update);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resize, false);
+      if (mount.current && gl.canvas.parentNode === mount.current) {
+        mount.current.removeChild(gl.canvas);
+      }
+    };
   }, []);
 
-  const particleOptions: RecursivePartial<IOptions> = useMemo(
-    () => ({
-      background: {
-        color: {
-          value: "transparent",
-        },
-      },
-      fpsLimit: 60,
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "grab",
-          },
-          resize: true,
-        },
-        modes: {
-          grab: {
-            distance: 200,
-            links: {
-              opacity: 0.8
-            }
-          },
-        },
-      },
-      particles: {
-        color: {
-          value: "#ffffff",
-        },
-        links: {
-          color: "#ffffff",
-          distance: 150,
-          enable: true,
-          opacity: 0.2,
-          width: 1,
-        },
-        collisions: {
-          enable: true,
-        },
-        move: {
-          direction: "none",
-          enable: true,
-          outModes: {
-            default: "bounce",
-          },
-          random: false,
-          speed: 0.5,
-          straight: false,
-        },
-        number: {
-          density: {
-            enable: true,
-            area: 800,
-          },
-          value: 200,
-        },
-        opacity: {
-          value: 0.2,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 3 },
-        },
-      },
-      detectRetina: true,
-    }),
-    []
-  );
+  return <div ref={mount} className="absolute inset-0 z-0" />;
+}
 
-  if (!init) {
-    return null;
-  }
 
+const CinematicHero = () => {
   return (
     <section
       className="relative w-full h-screen bg-background overflow-hidden"
     >
-      <Particles
-        id="tsparticles"
-        options={particleOptions}
-        className="absolute inset-0 z-0"
-      />
+      <OGLScene />
 
       <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-background via-background/30 to-transparent z-20"></div>
 
