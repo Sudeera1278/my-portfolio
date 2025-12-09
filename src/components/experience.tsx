@@ -74,16 +74,16 @@ const Experience = () => {
           <ScrollStack useWindowScroll>
             {experienceData.map((exp, index) => (
               <ScrollStackItem key={index}>
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full transition-colors duration-300 h-full flex flex-col justify-center">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="bg-background border-2 border-white/20 rounded-full flex items-center justify-center p-2">
-                        <Briefcase className="w-4 h-4 text-white" />
-                      </div>
-                      <p className="text-sm text-muted-foreground">{exp.duration}</p>
+                <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full transition-colors duration-300 h-full flex flex-col justify-center">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-background border-2 border-white/20 rounded-full flex items-center justify-center p-2">
+                      <Briefcase className="w-4 h-4 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
-                    <p className="text-muted-foreground">{exp.description}</p>
+                    <p className="text-sm text-muted-foreground">{exp.duration}</p>
                   </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
+                  <p className="text-muted-foreground">{exp.description}</p>
+                </div>
               </ScrollStackItem>
             ))}
           </ScrollStack>
