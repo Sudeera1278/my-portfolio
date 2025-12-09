@@ -77,20 +77,22 @@ const Experience = () => {
         </motion.div>
 
         <motion.div 
-          className="relative flex justify-center items-center h-[400px]"
+          className="relative flex justify-center items-center h-[350px] md:h-[400px]"
           variants={itemVariants}
         >
           <CardSwap
-            cardDistance={60}
-            verticalDistance={70}
+            width={600}
+            height={250}
+            cardDistance={40}
+            verticalDistance={15}
             delay={3000}
             pauseOnHover={true}
           >
             {experienceData.map((exp) => (
               <Card key={exp.id}>
-                 <div className="p-6">
+                 <div className="p-0 md:p-6">
                     <div className="flex items-start gap-4">
-                        <div className="bg-white/10 p-3 rounded-lg">
+                        <div className="bg-white/10 p-3 rounded-lg hidden md:block">
                             {exp.icon}
                         </div>
                         <div>
@@ -98,7 +100,7 @@ const Experience = () => {
                             <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
                         </div>
                     </div>
-                    <p className="text-muted-foreground mt-4">{exp.description}</p>
+                    <p className="text-muted-foreground mt-4 text-sm md:text-base">{exp.description}</p>
                  </div>
               </Card>
             ))}
