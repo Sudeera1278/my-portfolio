@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LightRays from "./light-rays";
-import GradientText from "./GradientText";
-import './GradientText.css';
+import GlitchText from "./GlitchText";
+import './GlitchText.css';
 
 const CinematicHero = () => {
   return (
@@ -64,9 +64,9 @@ const CinematicHero = () => {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="text-5xl md:text-7xl font-bold tracking-wider"
           >
-            <GradientText>
+            <GlitchText speed={1} enableShadows={true} enableOnHover={true}>
               Sudeera Dilshan
-            </GradientText>
+            </GlitchText>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
