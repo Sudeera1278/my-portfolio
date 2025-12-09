@@ -1,43 +1,42 @@
-"use client";
-
-import React, { ReactNode } from 'react';
+import { FC, CSSProperties } from 'react';
 import './GlitchText.css';
 
 interface GlitchTextProps {
-  children: ReactNode;
-  className?: string;
+  children: string;
   speed?: number;
   enableShadows?: boolean;
   enableOnHover?: boolean;
+  className?: string;
 }
 
-export default function GlitchText({
+interface CustomCSSProperties extends CSSProperties {
+  '--after-duration': string;
+  '--before-duration': string;
+  '--after-shadow': string;
+  '--before-shadow': string;
+}
+
+const GlitchText: FC<GlitchTextProps> = ({
   children,
-  className = '',
-  speed = 1,
-  enableShadows = false,
+  speed = 0.5,
+  enableShadows = true,
   enableOnHover = false,
-}: GlitchTextProps) {
-  const containerClasses = [
-    'glitch-text-container',
-    className,
-    enableOnHover ? 'glitch-on-hover' : '',
-  ].filter(Boolean).join(' ');
+  className = ''
+}) => {
+  const inlineStyles: CustomCSSProperties = {
+    '--after-duration': `${speed * 3}s`,
+    '--before-duration': `${speed * 2}s`,
+    '--after-shadow': enableShadows ? '-5px 0 red' : 'none',
+    '--before-shadow': enableShadows ? '5px 0 cyan' : 'none'
+  };
 
-  const textClasses = [
-    'glitch-text',
-    enableShadows ? 'has-shadows' : ''
-  ].filter(Boolean).join(' ');
-
-  const animationStyle = {
-    '--glitch-speed': `${speed}s`,
-  } as React.CSSProperties;
+  const hoverClass = enableOnHover ? 'enable-on-hover' : '';
 
   return (
-    <div className={containerClasses} style={animationStyle}>
-      <div className={textClasses} data-text={children}>
-        {children}
-      </div>
+    <div className={`glitch ${hoverClass} ${className}`} style={inlineStyles} data-text={children}>
+      {children}
     </div>
   );
-}
+};
+
+export default GlitchText;
