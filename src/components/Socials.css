@@ -1,66 +1,160 @@
 /* From Uiverse.io by fuad_5270 */
-.social-links-container {
-  display: flex;
-  gap: 1rem;
+/* From Uiverse.io by WAIOKYERE */
+ul.social-links-container {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .icon-content {
-  --bg-color: #f6f6f6;
-  --text-color: #333;
-  --icon-color: #333;
+  margin: 0 10px;
   position: relative;
 }
-
 .icon-content .tooltip {
   position: absolute;
-  top: -1.875rem; /* -30px */
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--text-color);
-  padding: 0.5rem 0.875rem; /* 8px 14px */
-  border-radius: 0.3125rem; /* 5px */
-  background: var(--bg-color);
-  font-size: 0.875rem; /* 14px */
-  font-weight: 600;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 15px;
   opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  white-space: nowrap;
-  box-shadow: 0 0.625rem 0.9375rem rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+/* Base glassmorphism anchor */
+.icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  transition: all 0.35s ease-in-out;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.45),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+    0 6px 16px rgba(0, 0, 0, 0.22);
 }
 
-.icon-content .tooltip::before {
+/* LinkedIn glass border */
+.icon-content[data-social="linkedin"] a {
+  border: 1px solid rgba(10, 102, 194, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(10, 102, 194, 0.4),
+    0 0 10px rgba(10, 102, 194, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* GitHub glass border */
+.icon-content[data-social="github"] a {
+  border: 1px solid rgba(51, 51, 51, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(51, 51, 51, 0.4),
+    0 0 10px rgba(51, 51, 51, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Medium glass border */
+.icon-content[data-social="medium"] a {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(0, 0, 0, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Common shine sweep effect */
+.icon-content a::before {
   content: "";
   position: absolute;
-  bottom: -0.5rem; /* -8px */
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 1rem; /* 16px */
-  height: 1rem; /* 16px */
-  background: var(--bg-color);
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.8s ease;
+  z-index: 0;
 }
 
-.icon-content:hover .tooltip {
-  top: -2.8125rem; /* -45px */
+.icon-content a:hover::before {
+  transform: rotate(25deg) translateX(100%);
+}
+
+.icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+}
+.icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.icon-content a:hover {
+  color: white;
+}
+
+.icon-content a .filled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  border-radius: 20%;
+  transition: all 0.3s ease-in-out;
+}
+.icon-content a:hover .filled {
+  height: 100%;
   opacity: 1;
-  pointer-events: auto;
+}
+
+@keyframes premiumGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .icon-content a {
-  width: 3.75rem; /* 60px */
-  height: 3.75rem; /* 60px */
-  display: block;
-  text-align: center;
+  text-decoration: none; /* underline remove */
+  overflow: hidden; /* prevent overflow */
   position: relative;
-  background: var(--bg-color);
-  border-radius: 0.3125rem; /* 5px */
-  box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon-content a .filled {
@@ -69,42 +163,49 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 0.3125rem; /* 5px */
-  background: var(--icon-color);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 0;
+  transition: all 0.3s ease-in-out;
+  border-radius: 20%;
 }
 
-.icon-content a:hover .filled {
-  opacity: 1;
+/* LinkedIn gradient */
+.icon-content a[data-social="linkedin"] .filled,
+.icon-content a[data-social="linkedin"] ~ .tooltip {
+  background: linear-gradient(135deg, #0a1f2d, #0f4a66, #0a66c2, #0a2e44);
+  background-size: 400% 400%;
+  animation: premiumGradient 6s ease infinite;
+  backdrop-filter: blur(12px) saturate(200%);
+  -webkit-backdrop-filter: blur(12px) saturate(200%);
+  border: 1px solid rgba(10, 102, 194, 0.6);
+  box-shadow:
+    inset 0 0 12px rgba(10, 102, 194, 0.5),
+    0 0 24px rgba(10, 102, 194, 0.7);
 }
 
-.icon-content a svg {
-  width: 100%;
-  height: 100%;
-  padding: 1.25rem; /* 20px */
-  color: var(--icon-color);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+/* GitHub gradient */
+.icon-content a[data-social="github"] .filled,
+.icon-content a[data-social="github"] ~ .tooltip {
+  background: linear-gradient(135deg, #1a1a1a, #333333, #555555, #222222);
+  background-size: 400% 400%;
+  animation: premiumGradient 6s ease infinite;
+  backdrop-filter: blur(12px) saturate(200%);
+  -webkit-backdrop-filter: blur(12px) saturate(200%);
+  border: 1px solid rgba(51, 51, 51, 0.6);
+  box-shadow:
+    inset 0 0 12px rgba(51, 51, 51, 0.5),
+    0 0 24px rgba(51, 51, 51, 0.7);
 }
 
-.icon-content a:hover svg {
-  color: #fff;
-}
-
-.icon-content a[data-social="linkedin"] {
-  --bg-color: #e0eefc;
-  --text-color: #0a66c2;
-  --icon-color: #0a66c2;
-}
-
-.icon-content a[data-social="github"] {
-  --bg-color: #e0e0e0;
-  --text-color: #333;
-  --icon-color: #333;
-}
-
-.icon-content a[data-social="medium"] {
-  --bg-color: #e0e0e0;
-  --text-color: #000;
-  --icon-color: #000;
+/* Medium gradient */
+.icon-content a[data-social="medium"] .filled,
+.icon-content a[data-social="medium"] ~ .tooltip {
+  background: linear-gradient(135deg, #000000, #222222, #444444, #111111);
+  background-size: 400% 400%;
+  animation: premiumGradient 6s ease infinite;
+  backdrop-filter: blur(12px) saturate(200%);
+  -webkit-backdrop-filter: blur(12px) saturate(200%);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(0, 0, 0, 0.7);
 }

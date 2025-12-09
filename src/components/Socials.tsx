@@ -38,9 +38,8 @@ const socialData = [
 
 const SocialLink = ({ name, href, icon, "data-social": dataSocial }: (typeof socialData)[0]) => {
   return (
-    <li className="icon-content">
+    <li className="icon-content" data-social={dataSocial}>
       <a
-        data-social={dataSocial}
         aria-label={name}
         href={href}
         target="_blank"
@@ -56,7 +55,7 @@ const SocialLink = ({ name, href, icon, "data-social": dataSocial }: (typeof soc
 
 const Socials = () => {
   return (
-    <ul className="social-links-container">
+    <ul className="social-links-container example-2">
       {socialData.map((social) => (
         <SocialLink key={social.name} {...social} />
       ))}
