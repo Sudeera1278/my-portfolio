@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import ProfileCard from "./ProfileCard";
 import "./ProfileCard.css";
-import VariableProximity from "./VariableProximity";
 
 const AboutMe = () => {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
@@ -75,13 +74,7 @@ const AboutMe = () => {
               variants={itemVariants}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed"
             >
-              <VariableProximity
-                  label={aboutText}
-                  fromFontVariationSettings="'wght' 300"
-                  toFontVariationSettings="'wght' 900"
-                  containerRef={containerRef}
-                  radius={200}
-                />
+              {aboutText}
             </motion.p>
           </div>
         </div>
