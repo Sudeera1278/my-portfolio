@@ -2,10 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Server, Database, Cloud, Terminal } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { LogoLoop, type LogoItem } from "./LogoLoop";
 
-// SVG Icons for technologies - It's better to keep these as they are small and self-contained
+// SVG Icons for technologies
 const TSIcon = () => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
 <rect width="36" height="36" x="6" y="6" fill="#1976d2"></rect><polygon fill="#fff" points="27.49,22 14.227,22 14.227,25.264 18.984,25.264 18.984,40 22.753,40 22.753,25.264 27.49,25.264"></polygon><path fill="#fff" d="M39.194,26.084c0,0-1.787-1.192-3.807-1.192s-2.747,0.96-2.747,1.986 c0,2.648,7.381,2.383,7.381,7.712c0,8.209-11.254,4.568-11.254,4.568V35.22c0,0,2.152,1.622,4.733,1.622s2.483-1.688,2.483-1.92 c0-2.449-7.315-2.449-7.315-7.878c0-7.381,10.658-4.469,10.658-4.469L39.194,26.084z"></path>
 </svg>
@@ -100,6 +99,21 @@ const itemVariants = {
 };
 
 const TechStack = () => {
+  const logos: LogoItem[] = allSkills.map(skill => ({
+    node: (
+      <div className="flex flex-col items-center justify-center space-y-2">
+        <div className="w-24 h-24 p-4 bg-white/5 rounded-full flex items-center justify-center transition-all duration-300">
+          <div className="w-full h-full">
+            {skill.icon}
+          </div>
+        </div>
+        <span className="text-sm text-muted-foreground">{skill.name}</span>
+      </div>
+    ),
+    title: skill.name
+  }));
+
+
   return (
     <motion.section
       id="skills"
@@ -121,28 +135,11 @@ const TechStack = () => {
         </motion.div>
       </div>
 
-      <motion.div
-        className="relative w-full"
-        variants={itemVariants}
-      >
-        <div className="flex animate-marquee-rtl space-x-8">
-          {[...allSkills, ...allSkills].map((skill, index) => (
-            <div key={index} className="flex-shrink-0 flex flex-col items-center justify-center space-y-2">
-              <div className="w-24 h-24 p-4 bg-white/5 rounded-full flex items-center justify-center
-                              transition-all duration-300 hover:bg-white/10 hover:scale-110">
-                <div className="w-full h-full">
-                  {skill.icon}
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground">{skill.name}</span>
-            </div>
-          ))}
-        </div>
+      <motion.div variants={itemVariants}>
+        <LogoLoop logos={logos} speed={40} gap={40} logoHeight={120} />
       </motion.div>
     </motion.section>
   );
 };
 
 export default TechStack;
-
-    
