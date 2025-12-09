@@ -2,26 +2,31 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Code, Pencil } from "lucide-react";
+import Carousel from "./Carousel";
+import type { CarouselItem } from "./Carousel";
 
-const experienceData = [
+const experienceData: CarouselItem[] = [
   {
-    role: "BackEnd Developer (Java Spring Boot)",
-    duration: "2024 present",
+    id: 1,
+    title: "BackEnd Developer (Java Spring Boot)",
     description:
       "Developing secure and efficient backend systems using Spring Boot. Experienced in building REST APIs, connecting databases, and testing backend functionality.",
+    icon: <Code className="carousel-icon" />,
   },
   {
-    role: "UI/UX Designer (Figma)",
-    duration: "2023 -present",
+    id: 2,
+    title: "UI/UX Designer (Figma)",
     description:
       "Translating ideas into intuitive visual designs using Figma. Improving user interaction through wireframes, prototypes, and test-driven design decisions.",
+    icon: <Pencil className="carousel-icon" />,
   },
   {
-    role: "Content Publisher (Medium)",
-    duration: "2024 -present",
+    id: 3,
+    title: "Content Publisher (Medium)",
     description:
       "Writing informative articles about software development and technology to share knowledge with the community.",
+    icon: <Briefcase className="carousel-icon" />,
   },
 ];
 
@@ -68,30 +73,10 @@ const Experience = () => {
           </h2>
           <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
         </motion.div>
-
-        <motion.div
-          className="relative max-w-3xl mx-auto"
-          variants={containerVariants}
-        >
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-white/10" />
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="relative pl-12 mb-12 flex items-start"
-              variants={itemVariants}
-            >
-              <div className="absolute left-4 top-1 w-8 h-8 -translate-x-1/2 bg-background border-2 border-white/20 rounded-full flex items-center justify-center">
-                <Briefcase className="w-4 h-4 text-white" />
-              </div>
-              <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full hover:border-white/20 transition-colors duration-300">
-                <p className="text-sm text-muted-foreground mb-1">{exp.duration}</p>
-                <h3 className="text-xl font-bold text-white mb-2">{exp.role}</h3>
-                <p className="text-muted-foreground">{exp.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
+      <motion.div className="flex justify-center" variants={itemVariants}>
+        <Carousel items={experienceData} loop={true} autoplay={true} />
+      </motion.div>
     </motion.section>
   );
 };
