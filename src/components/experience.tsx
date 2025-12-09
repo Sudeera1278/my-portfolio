@@ -57,7 +57,7 @@ const Experience = () => {
   return (
     <motion.section
       id="experience"
-      className="w-full py-20 md:py-32 bg-muted/10"
+      className="w-full py-24 md:py-40 bg-muted/10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
@@ -75,7 +75,7 @@ const Experience = () => {
         </motion.div>
       </div>
       <motion.div className="flex justify-center" variants={itemVariants}>
-        <Carousel items={experienceData} loop={true} autoplay={true} />
+        <Carousel items={experienceData} loop={true} autoplay={true} baseWidth={500} />
       </motion.div>
     </motion.section>
   );
