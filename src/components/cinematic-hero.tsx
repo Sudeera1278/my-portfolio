@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Renderer, Camera, Transform, Program, Mesh, Sphere } from 'ogl';
+import { Renderer, Camera, Transform, Program, Mesh, Sphere, Vec3 } from 'ogl';
 
 const vertex = /* glsl */ `
     attribute vec3 position;
@@ -12,16 +12,15 @@ const vertex = /* glsl */ `
     uniform float uTime;
 
     varying vec3 vNormal;
-    varying vec3 vPosition;
 
     void main() {
         vNormal = normalize(normal);
         
         vec3 pos = position;
-        pos.y += sin(pos.x * 2.0 + uTime * 0.5) * 0.1;
-        pos.x += cos(pos.y * 2.0 + uTime * 0.5) * 0.1;
         
-        vPosition = pos;
+        // Add some subtle movement to each sphere
+        float displacement = sin(pos.x * 3.0 + uTime * 0.5) * 0.1;
+        pos.y += displacement;
 
         gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     }
@@ -31,18 +30,20 @@ const fragment = /* glsl */ `
     precision highp float;
     uniform float uTime;
     varying vec3 vNormal;
-    varying vec3 vPosition;
 
     void main() {
         vec3 normal = normalize(vNormal);
-        float lighting = dot(normal, normalize(vec3(-0.3, 0.8, 0.6)));
+        float lighting = dot(normal, normalize(vec3(0.5, 0.5, 1.0)));
         
-        vec3 color = vec3(0.1, 0.2, 0.9); // Deep blue base
-        color += (sin(vPosition.y * 5.0 + uTime) * 0.5 + 0.5) * 0.2;
-        color.r += (cos(vPosition.x * 5.0 - uTime) * 0.5 + 0.5) * 0.2;
+        // A cool, ethereal blue
+        vec3 color = vec3(0.2, 0.5, 1.0); 
         
-        gl_FragColor.rgb = color * (0.5 + lighting * 0.5);
-        gl_FragColor.a = 1.0;
+        // Add a glowing effect
+        float glow = 1.0 - dot(normal, vec3(0, 0, 1.0));
+        color += vec3(0.1, 0.2, 0.4) * pow(glow, 2.0);
+
+        gl_FragColor.rgb = color * (0.3 + lighting * 0.7);
+        gl_FragColor.a = 0.9;
     }
 `;
 
@@ -57,9 +58,8 @@ const OGLScene = () => {
     const gl = renderer.gl;
     mount.current.appendChild(gl.canvas);
 
-    const camera = new Camera(gl, { fov: 35 });
-    camera.position.set(0, 1, 5);
-    camera.lookAt([0, 0, 0]);
+    const camera = new Camera(gl, { fov: 45 });
+    camera.position.set(0, 0, 15);
 
     function resize() {
       if(!mount.current) return;
@@ -77,20 +77,35 @@ const OGLScene = () => {
         uniforms: {
             uTime: { value: 0 },
         },
+        transparent: true,
     });
+    
+    const sphereGeometry = new Sphere(gl, { radius: 0.3, widthSegments: 16, heightSegments: 16 });
+    
+    const numSpheres = 50;
+    const spheres: Mesh[] = [];
 
-    const geometry = new Sphere(gl, { radius: 1, widthSegments: 64, heightSegments: 64 });
-    const mesh = new Mesh(gl, { geometry, program });
-    mesh.setParent(scene);
+    for (let i = 0; i < numSpheres; i++) {
+        const mesh = new Mesh(gl, { geometry: sphereGeometry, program });
+        mesh.position.set(
+            (Math.random() - 0.5) * 20,
+            (Math.random() - 0.5) * 20,
+            (Math.random() - 0.5) * 10
+        );
+        mesh.setParent(scene);
+        spheres.push(mesh);
+    }
 
     let animationFrameId: number;
 
     const update = (t: number) => {
         animationFrameId = requestAnimationFrame(update);
 
-        program.uniforms.uTime.value = t * 0.0003;
-        mesh.rotation.y -= 0.005;
-        mesh.rotation.x += 0.002;
+        program.uniforms.uTime.value = t * 0.0001;
+        
+        // Animate the whole scene
+        scene.rotation.y += 0.001;
+        scene.rotation.x += 0.0005;
 
         renderer.render({ scene, camera });
     }
