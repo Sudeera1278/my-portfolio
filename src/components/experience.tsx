@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, Code, Pencil } from "lucide-react";
+import NoSignalTV from "./NoSignalTV";
 
 const experienceData = [
   {
@@ -75,28 +76,33 @@ const Experience = () => {
           <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
         </motion.div>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-white/10" />
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="relative pl-12 mb-12 flex items-start"
-              variants={itemVariants}
-            >
-              <div className="absolute left-4 top-1 w-8 h-8 -translate-x-1/2 bg-background border-2 border-white/20 rounded-full flex items-center justify-center">
-                {exp.icon}
-              </div>
-              <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full hover:border-white/20 transition-colors duration-300">
-                <p className="text-sm text-muted-foreground mb-1">
-                  {exp.duration}
-                </p>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {exp.title}
-                </h3>
-                <p className="text-muted-foreground">{exp.description}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-4 top-0 h-full w-0.5 bg-white/10" />
+            {experienceData.map((exp, index) => (
+              <motion.div
+                key={index}
+                className="relative pl-12 mb-12 flex items-start"
+                variants={itemVariants}
+              >
+                <div className="absolute left-4 top-1 w-8 h-8 -translate-x-1/2 bg-background border-2 border-white/20 rounded-full flex items-center justify-center">
+                  {exp.icon}
+                </div>
+                <div className="bg-white/5 p-6 rounded-lg border border-white/10 w-full hover:border-white/20 transition-colors duration-300">
+                  <p className="text-sm text-muted-foreground mb-1">
+                    {exp.duration}
+                  </p>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {exp.title}
+                  </h3>
+                  <p className="text-muted-foreground">{exp.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+           <motion.div variants={itemVariants} className="flex justify-center">
+             <NoSignalTV />
+           </motion.div>
         </div>
       </div>
     </motion.section>
