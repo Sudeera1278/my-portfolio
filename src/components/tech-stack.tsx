@@ -102,12 +102,12 @@ const TechStack = () => {
   const logos: LogoItem[] = allSkills.map(skill => ({
     node: (
       <div className="flex flex-col items-center justify-center space-y-2">
-        <div className="w-20 h-20 p-3 bg-muted/30 rounded-full flex items-center justify-center transition-all duration-300">
+        <div className="w-24 h-24 p-3 bg-muted/30 rounded-full flex items-center justify-center transition-all duration-300">
           <div className="w-full h-full">
             {skill.icon}
           </div>
         </div>
-        <span className="text-xs text-muted-foreground">{skill.name}</span>
+        <span className="text-sm text-muted-foreground">{skill.name}</span>
       </div>
     ),
     title: skill.name
