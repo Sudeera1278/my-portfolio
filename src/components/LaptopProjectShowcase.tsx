@@ -71,7 +71,7 @@ export default function LaptopProjectShowcase({
                   <h3 className="text-xl font-semibold">
                     {project ? project.title : "No projects"}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-400">
+                  <p className="mt-2 text-sm text-gray-400 min-h-[100px]">
                     {project
                       ? project.desc
                       : "Add project objects via `projects` prop"}
