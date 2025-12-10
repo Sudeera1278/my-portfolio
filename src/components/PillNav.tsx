@@ -235,7 +235,7 @@ const PillNav: React.FC<PillNavProps> = ({
     href.startsWith('mailto:') ||
     href.startsWith('tel:') ||
     href.startsWith('#');
-
+  
   const cssVars = {
     ['--base']: baseColor,
     ['--pill-bg']: pillColor,
@@ -243,9 +243,6 @@ const PillNav: React.FC<PillNavProps> = ({
     ['--pill-text']: resolvedPillTextColor
   } as React.CSSProperties;
   
-  const LogoComponent = isExternalLink(items?.[0]?.href) ? 'a' : Link;
-
-
   return (
     <div className="pill-nav-container">
       <nav className={`pill-nav ${className}`} aria-label="Primary" style={cssVars}>
@@ -312,5 +309,3 @@ const PillNav: React.FC<PillNavProps> = ({
 };
 
 export default PillNav;
-
-    
