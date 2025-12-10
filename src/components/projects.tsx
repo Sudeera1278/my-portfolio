@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import LaptopProjectShowcase from "./LaptopProjectShowcase";
+import { Button } from "@/components/ui/button";
 
 const projectsData = [
   {
@@ -74,6 +75,9 @@ const itemVariants = {
 };
 
 const Projects = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeProject = transformedProjects[activeIndex];
+
   return (
     <motion.section
       id="projects"
@@ -93,8 +97,74 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
         </motion.div>
+        
         <motion.div variants={itemVariants}>
-          <LaptopProjectShowcase projects={transformedProjects} />
+          <div className="w-full flex justify-center items-center py-16 bg-background">
+            <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 p-6 items-center">
+              {/* Laptop Mockup */}
+              <div className="flex justify-center items-center">
+                <div className="relative w-full aspect-[4/3] max-w-[500px]">
+                  {activeProject.img && (
+                     <Image
+                      src={activeProject.img}
+                      alt={activeProject.title}
+                      fill
+                      className="object-cover rounded-lg"
+                      data-ai-hint={activeProject.imageHint}
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Project Details */}
+              <div className="text-white space-y-6">
+                <h2 className="text-3xl font-bold">{activeProject.title}</h2>
+                <p className="text-muted-foreground">{activeProject.desc}</p>
+                
+                <div className="flex gap-3 flex-wrap">
+                  {activeProject.tech.map(t => (
+                    <span key={t} className="px-3 py-1 bg-white/10 rounded-md text-sm">{t}</span>
+                  ))}
+                </div>
+                
+                <div className="flex gap-4">
+                  <Button asChild variant="outline" className="bg-white/10 hover:bg-white/20">
+                    <a href={activeProject.liveUrl} target="_blank" rel="noreferrer">View Project</a>
+                  </Button>
+                  <Button asChild variant="secondary" className="bg-gray-700 hover:bg-gray-600">
+                    <a href={activeProject.repoUrl} target="_blank" rel="noreferrer">View Repo</a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Thumbnails */}
+          <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
+            {transformedProjects.map((p, i) => (
+              <button
+                key={p.id || i}
+                onClick={() => setActiveIndex(i)}
+                className={`w-28 h-16 rounded-md overflow-hidden border-2 transition-all ${
+                  i === activeIndex
+                    ? "border-white/80 ring-2 ring-offset-2 ring-offset-background ring-white/50"
+                    : "border-white/20 opacity-60 hover:opacity-100"
+                } bg-background shadow-sm`}
+                aria-label={`Show ${p.title}`}
+              >
+                {p.img ? (
+                  <div className="relative w-full h-full">
+                    <Image src={p.img} alt={p.title} fill className="object-cover" />
+                  </div>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground">
+                    No preview
+                  </div>
+                )}
+              </button>
+            ))}
+          </div>
+
         </motion.div>
       </div>
     </motion.section>
