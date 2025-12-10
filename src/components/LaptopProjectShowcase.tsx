@@ -89,14 +89,6 @@ export default function LaptopProjectShowcase({
                   View Repo
                 </a>
               </div>
-               {/* Pagination */}
-              <div className="flex justify-between text-gray-400 text-sm mt-4">
-                <div>Project {projects.length ? index + 1 : 0} / {projects.length}</div>
-                <div className="flex gap-2">
-                  <button onClick={prev} className="px-3 py-1 bg-gray-700 rounded-md">Prev</button>
-                  <button onClick={next} className="px-3 py-1 bg-gray-700 rounded-md">Next</button>
-                </div>
-              </div>
             </div>
           </div>
            {/* Bottom bezel */}
