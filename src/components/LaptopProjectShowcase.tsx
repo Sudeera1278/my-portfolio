@@ -57,13 +57,13 @@ export default function LaptopProjectShowcase({
               )}
             </div>
              {/* Text */}
-            <div className="w-full md:w-80 flex flex-col justify-between text-white">
+            <div className="w-full md:w-80 flex flex-col text-white gap-4">
               <div>
                 <h3 className="text-xl font-semibold">{project?.title}</h3>
                 <p className="text-sm mt-3 text-gray-300 min-h-[160px]">{project?.desc}</p>
               </div>
                {/* Tech */}
-              <div className="flex flex-wrap gap-2 mt-3">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {project?.tech?.map((t: string) => (
                   <span key={t} className="px-2 py-1 text-xs bg-gray-700 rounded-md border border-gray-600">
                     {t}
@@ -71,7 +71,7 @@ export default function LaptopProjectShowcase({
                 ))}
               </div>
                {/* Buttons */}
-              <div className="flex gap-3 mt-6">
+              <div className="flex gap-3">
                 <a
                   href={project?.liveUrl || '#'}
                   target="_blank"
