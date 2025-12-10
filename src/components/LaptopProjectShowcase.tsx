@@ -48,7 +48,7 @@ export default function LaptopProjectShowcase({
   const project = projects.length ? projects[index] : null;
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4">
+    <div className="w-full max-w-6xl mx-auto p-4">
       <div className="relative mx-auto">
         <div className="bg-gray-900/50 rounded-2xl shadow-2xl overflow-hidden border border-white/10">
           <div className="flex items-center justify-start gap-3 px-4 py-2 bg-gray-800/60">
