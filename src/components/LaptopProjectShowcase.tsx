@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import AnimatedButton from "./AnimatedButton";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function LaptopProjectShowcase({
   projects = [],
@@ -29,6 +30,12 @@ export default function LaptopProjectShowcase({
 
   const project = projects.length ? projects[index] : null;
 
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+  };
+
   return (
     <div className="w-full max-w-6xl mx-auto py-10 px-4">
       <div className="relative mx-auto">
@@ -42,41 +49,53 @@ export default function LaptopProjectShowcase({
             <div className="ml-auto text-sm text-gray-400">Your Portfolio</div>
           </div>
            {/* Screen */}
-          <div className="bg-black min-h-[400px] md:min-h-[480px] p-8 flex flex-col md:flex-row gap-6">
-             {/* Image */}
-            <div className="flex-1 bg-white rounded-xl flex items-center justify-center shadow-md">
-              {project?.img ? (
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  width={400}
-                  height={320}
-                  className="object-contain max-h-[320px] w-auto"
-                />
-              ) : (
-                <div className="text-gray-500 text-sm">No Preview Available</div>
-              )}
-            </div>
-             {/* Text */}
-             <div className="w-full md:w-80 flex flex-col gap-4 text-white">
-              <div className="flex-grow">
-                <h3 className="text-xl font-semibold">{project?.title}</h3>
-                <p className="text-sm mt-3 text-gray-300 min-h-[160px]">{project?.desc}</p>
-              </div>
-               {/* Tech */}
-              <div className="flex flex-wrap gap-2">
-                {project?.tech?.map((t: string) => (
-                  <span key={t} className="px-2 py-1 text-xs bg-gray-700 rounded-md border border-gray-600">
-                    {t}
-                  </span>
-                ))}
-              </div>
-               {/* Buttons */}
-              <div className="flex justify-center gap-3">
-                 <AnimatedButton href={project?.liveUrl || '#'} text1="Live Demo" text2="Open" />
-                 <AnimatedButton href={project?.repoUrl || '#'} text1="View Repo" text2="Code" />
-              </div>
-            </div>
+          <div className="bg-black min-h-[360px] md:min-h-[440px] p-8 flex">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                className="flex flex-col md:flex-row gap-6 w-full"
+                variants={variants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                 {/* Image */}
+                <div className="flex-1 bg-white rounded-xl flex items-center justify-center shadow-md">
+                  {project?.img ? (
+                    <Image
+                      src={project.img}
+                      alt={project.title}
+                      width={400}
+                      height={320}
+                      className="object-contain max-h-[320px] w-auto"
+                    />
+                  ) : (
+                    <div className="text-gray-500 text-sm">No Preview Available</div>
+                  )}
+                </div>
+                 {/* Text */}
+                 <div className="w-full md:w-80 flex flex-col gap-4 text-white">
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-semibold">{project?.title}</h3>
+                    <p className="text-sm mt-3 text-gray-300 min-h-[160px]">{project?.desc}</p>
+                  </div>
+                   {/* Tech */}
+                  <div className="flex flex-wrap gap-2">
+                    {project?.tech?.map((t: string) => (
+                      <span key={t} className="px-2 py-1 text-xs bg-gray-700 rounded-md border border-gray-600">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                   {/* Buttons */}
+                  <div className="flex justify-center gap-3">
+                     <AnimatedButton href={project?.liveUrl || '#'} text1="Live Demo" text2="Open" />
+                     <AnimatedButton href={project?.repoUrl || '#'} text1="View Repo" text2="Code" />
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
            {/* Bottom bezel */}
           <div className="bg-gray-900 p-4 flex justify-center">
