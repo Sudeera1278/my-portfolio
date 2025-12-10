@@ -56,6 +56,8 @@
   overflow: hidden;
   display: block;
   border-radius: 9999px;
+  width: 110px;
+  text-align: center;
 }
 
 .hover-circle {
