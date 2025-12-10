@@ -2,11 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -17,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import AnimatedButton from "./AnimatedButton";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -197,13 +197,7 @@ const Contact = () => {
                     </FormItem>
                   )}
                 />
-                <Button
-                  type="submit"
-                  className="w-full bg-white/10 hover:bg-white/20 text-white font-bold text-base py-6"
-                >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
+                <AnimatedButton type="submit" text1="Send Message" text2="Sent!" />
               </form>
             </Form>
           </div>
