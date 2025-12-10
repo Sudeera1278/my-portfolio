@@ -43,7 +43,7 @@ ul.social-links-container {
   align-items: center;
   width: 50px;
   height: 50px;
-  border-radius: 20%;
+  border-radius: 50%;
   color: #fff;
   background: linear-gradient(
     135deg,
@@ -129,7 +129,7 @@ ul.social-links-container {
   width: 100%;
   height: 0;
   opacity: 0;
-  border-radius: 20%;
+  border-radius: 50%;
   transition: all 0.3s ease-in-out;
 }
 .icon-content a:hover .filled {
@@ -166,7 +166,7 @@ ul.social-links-container {
   height: 100%;
   z-index: 0;
   transition: all 0.3s ease-in-out;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 
 /* LinkedIn gradient */
