@@ -68,17 +68,40 @@ const containerVariants = {
   },
 };
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="w-full min-h-screen bg-background flex justify-center items-center py-20 px-4"
+      className="w-full min-h-screen bg-background flex flex-col justify-center items-center py-20 px-4"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      <LaptopProjectShowcase projects={transformedProjects} />
+      <motion.div
+        className="flex flex-col items-center text-center mb-16"
+        variants={itemVariants}
+      >
+        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+          Projects
+        </h2>
+        <div className="w-24 h-1 bg-white/30 rounded-full mt-4" />
+      </motion.div>
+      <motion.div variants={itemVariants} className="w-full">
+        <LaptopProjectShowcase projects={transformedProjects} />
+      </motion.div>
     </motion.section>
   );
 };
