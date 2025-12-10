@@ -102,7 +102,7 @@ const TechStack = () => {
   const logos: LogoItem[] = allSkills.map(skill => ({
     node: (
       <div className="flex flex-col items-center justify-center space-y-2">
-        <div className="w-16 h-16 p-3 bg-muted/30 rounded-full flex items-center justify-center transition-all duration-300">
+        <div className="w-20 h-20 p-3 bg-muted/30 rounded-full flex items-center justify-center transition-all duration-300">
           <div className="w-full h-full">
             {skill.icon}
           </div>
@@ -136,7 +136,7 @@ const TechStack = () => {
       </div>
 
       <motion.div variants={itemVariants}>
-        <LogoLoop logos={logos} speed={40} gap={40} logoHeight={80} scaleOnHover />
+        <LogoLoop logos={logos} speed={40} gap={40} logoHeight={96} scaleOnHover />
       </motion.div>
     </motion.section>
   );
