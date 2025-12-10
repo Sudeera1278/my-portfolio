@@ -42,7 +42,9 @@ const AboutMe = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div variants={itemVariants} className="flex justify-center">
-            <Card className="w-[350px] h-[500px] bg-cover bg-center rounded-2xl" style={{backgroundImage: "url('https://i.imgur.com/u8ZxlHD.png')"}} />
+            <div className="p-2 rounded-3xl bg-white/5 border border-white/10 shadow-lg">
+              <Card className="w-[350px] h-[500px] bg-cover bg-center rounded-2xl" style={{backgroundImage: "url('https://i.imgur.com/u8ZxlHD.png')"}} />
+            </div>
           </motion.div>
           <div className="space-y-8 text-left md:text-left">
             <motion.div variants={itemVariants} className="space-y-4">
