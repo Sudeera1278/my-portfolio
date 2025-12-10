@@ -48,15 +48,15 @@
 
 .pill {
   position: relative;
-  padding: 12px 24px;
+  padding: 10px 20px;
   text-decoration: none;
   color: var(--base);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   overflow: hidden;
   display: block;
   border-radius: 9999px;
-  width: 110px;
+  width: 100px;
   text-align: center;
 }
 
