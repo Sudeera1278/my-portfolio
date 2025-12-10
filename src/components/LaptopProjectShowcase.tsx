@@ -72,7 +72,7 @@ export default function LaptopProjectShowcase({
                 ))}
               </div>
                {/* Buttons */}
-              <div className="flex gap-3">
+              <div className="flex justify-center gap-3">
                  <AnimatedButton href={project?.liveUrl || '#'} text1="Live Demo" text2="Open" />
                  <AnimatedButton href={project?.repoUrl || '#'} text1="View Repo" text2="Code" />
               </div>
