@@ -53,7 +53,7 @@ export default function LaptopProjectShowcase({
                     alt={project.title}
                     width={500}
                     height={400}
-                    className="object-contain w-full h-full"
+                    className="object-cover w-full h-full"
                   />
                 ) : (
                   <div className="text-center p-6 text-white">
