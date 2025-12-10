@@ -79,7 +79,7 @@ export default function LaptopProjectShowcase({
                 )}
               </div>
 
-              <div className="w-full md:w-80 flex flex-col gap-4 text-white">
+              <div className="w-full md:w-96 flex flex-col gap-4 text-white">
                 <div>
                   <h3 className="text-xl font-semibold text-white">
                     {project ? project.title : "No projects"}
