@@ -41,29 +41,29 @@ export default function LaptopProjectShowcase({
             <div className="ml-auto text-sm text-gray-400">Your Portfolio</div>
           </div>
            {/* Screen */}
-          <div className="bg-black min-h-[500px] md:min-h-[580px] p-8 flex flex-col md:flex-row gap-6">
+          <div className="bg-black min-h-[400px] md:min-h-[480px] p-8 flex flex-col md:flex-row gap-6">
              {/* Image */}
             <div className="flex-1 bg-white rounded-xl flex items-center justify-center shadow-md">
               {project?.img ? (
                 <Image
                   src={project.img}
                   alt={project.title}
-                  width={500}
-                  height={400}
-                  className="object-contain max-h-[400px] w-auto"
+                  width={400}
+                  height={320}
+                  className="object-contain max-h-[320px] w-auto"
                 />
               ) : (
                 <div className="text-gray-500 text-sm">No Preview Available</div>
               )}
             </div>
              {/* Text */}
-            <div className="w-full md:w-80 flex flex-col text-white gap-4">
-              <div>
+             <div className="w-full md:w-80 flex flex-col gap-4 text-white">
+              <div className="flex-grow">
                 <h3 className="text-xl font-semibold">{project?.title}</h3>
                 <p className="text-sm mt-3 text-gray-300 min-h-[160px]">{project?.desc}</p>
               </div>
                {/* Tech */}
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-2">
                 {project?.tech?.map((t: string) => (
                   <span key={t} className="px-2 py-1 text-xs bg-gray-700 rounded-md border border-gray-600">
                     {t}
