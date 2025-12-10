@@ -103,16 +103,19 @@ const Projects = () => {
             <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 p-6 items-center">
               {/* Laptop Mockup */}
               <div className="flex justify-center items-center">
-                <div className="relative w-full aspect-[4/3] max-w-[500px]">
-                  {activeProject.img && (
-                     <Image
-                      src={activeProject.img}
-                      alt={activeProject.title}
-                      fill
-                      className="object-cover rounded-lg"
-                      data-ai-hint={activeProject.imageHint}
-                    />
-                  )}
+                <div className="relative w-[300px] md:w-[380px]">
+                  <div className="rounded-[35px] overflow-hidden border-4 border-gray-700 shadow-2xl">
+                    {activeProject.img && (
+                      <Image
+                        src={activeProject.img}
+                        alt={activeProject.title}
+                        width={380}
+                        height={800}
+                        className="w-full h-full object-cover"
+                        data-ai-hint={activeProject.imageHint}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
 
