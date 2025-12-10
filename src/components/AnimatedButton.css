@@ -1,14 +1,14 @@
 .animated-btn {
-  padding: 0.8em 1.8em;
+  padding: 0.6em 1.4em;
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
   color: #ffffff;
   transition: all 1000ms;
-  font-size: 13px;
+  font-size: 12px;
   position: relative;
   overflow: hidden;
   outline: 2px solid #ffffff;
