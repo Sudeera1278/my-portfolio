@@ -41,16 +41,10 @@ const PillNav: React.FC<PillNavProps> = ({
   initialLoadAnimation = true
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
-  const logoImgRef = useRef<HTMLImageElement | null>(null);
-  const logoTweenRef = useRef<gsap.core.Tween | null>(null);
-  const hamburgerRef = useRef<HTMLButtonElement | null>(null);
-  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
-  const logoRef = useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
     const layout = () => {
@@ -111,24 +105,8 @@ const PillNav: React.FC<PillNavProps> = ({
       document.fonts.ready.then(layout).catch(() => {});
     }
 
-    const menu = mobileMenuRef.current;
-    if (menu) {
-      gsap.set(menu, { visibility: 'hidden', opacity: 0, scaleY: 1 });
-    }
-
     if (initialLoadAnimation) {
-      const logoEl = logoRef.current;
       const navItemsEl = navItemsRef.current;
-
-      if (logoEl) {
-        gsap.set(logoEl, { scale: 0 });
-        gsap.to(logoEl, {
-          scale: 1,
-          duration: 0.6,
-          ease
-        });
-      }
-
       if (navItemsEl) {
         gsap.set(navItemsEl, { width: 0, overflow: 'hidden' });
         gsap.to(navItemsEl, {
@@ -164,78 +142,6 @@ const PillNav: React.FC<PillNavProps> = ({
     });
   };
 
-  const handleLogoEnter = () => {
-    const img = logoImgRef.current;
-    if (!img) return;
-    logoTweenRef.current?.kill();
-    gsap.set(img, { rotate: 0 });
-    logoTweenRef.current = gsap.to(img, {
-      rotate: 360,
-      duration: 0.2,
-      ease,
-      overwrite: 'auto'
-    });
-  };
-
-  const toggleMobileMenu = () => {
-    const newState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(newState);
-
-    const hamburger = hamburgerRef.current;
-    const menu = mobileMenuRef.current;
-
-    if (hamburger) {
-      const lines = hamburger.querySelectorAll('.hamburger-line');
-      if (newState) {
-        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
-      } else {
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
-      }
-    }
-
-    if (menu) {
-      if (newState) {
-        gsap.set(menu, { visibility: 'visible' });
-        gsap.fromTo(
-          menu,
-          { opacity: 0, y: 10, scaleY: 1 },
-          {
-            opacity: 1,
-            y: 0,
-            scaleY: 1,
-            duration: 0.3,
-            ease,
-            transformOrigin: 'top center'
-          }
-        );
-      } else {
-        gsap.to(menu, {
-          opacity: 0,
-          y: 10,
-          scaleY: 1,
-          duration: 0.2,
-          ease,
-          transformOrigin: 'top center',
-          onComplete: () => {
-            gsap.set(menu, { visibility: 'hidden' });
-          }
-        });
-      }
-    }
-
-    onMobileMenuClick?.();
-  };
-
-  const isExternalLink = (href: string) =>
-    href.startsWith('http://') ||
-    href.startsWith('https://') ||
-    href.startsWith('//') ||
-    href.startsWith('mailto:') ||
-    href.startsWith('tel:') ||
-    href.startsWith('#');
-  
   const cssVars = {
     ['--base']: baseColor,
     ['--pill-bg']: pillColor,
@@ -247,7 +153,7 @@ const PillNav: React.FC<PillNavProps> = ({
     <div className="pill-nav-container">
       <nav className={`pill-nav ${className}`} aria-label="Primary" style={cssVars}>
         <div className="flex items-center gap-2 text-lg font-bold text-white">Sudeera Dilshan</div>
-        <div className="pill-nav-items desktop-only" ref={navItemsRef}>
+        <div className="pill-nav-items" ref={navItemsRef}>
           <ul className="pill-list" role="menubar">
             {items.map((item, i) => (
               <li key={item.href} role="none">
@@ -277,33 +183,7 @@ const PillNav: React.FC<PillNavProps> = ({
             ))}
           </ul>
         </div>
-
-        <button
-          className="mobile-menu-button mobile-only"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-          ref={hamburgerRef}
-        >
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-        </button>
       </nav>
-
-      <div className="mobile-menu-popover mobile-only" ref={mobileMenuRef} style={cssVars}>
-        <ul className="mobile-menu-list">
-          {items.map(item => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`mobile-menu-link${activeHref === item.href ? ' is-active' : ''}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 };
