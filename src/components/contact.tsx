@@ -197,7 +197,9 @@ const Contact = () => {
                     </FormItem>
                   )}
                 />
-                <AnimatedButton type="submit" text1="Send Message" text2="Sent!" />
+                <div className="flex justify-center">
+                  <AnimatedButton type="submit" text1="Send Message" text2="Sent!" />
+                </div>
               </form>
             </Form>
           </div>
