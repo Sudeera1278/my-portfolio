@@ -111,30 +111,6 @@ export default function LaptopProjectShowcase({
                     View Repo
                   </a>
                 </div>
-
-                {/* small pagination */}
-                <div className="flex items-center justify-between mt-4 text-sm text-gray-400">
-                  <div>
-                    Project {projects.length ? index + 1 : 0} /{" "}
-                    {projects.length}
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={prev}
-                      aria-label="previous"
-                      className="px-2 py-1 rounded-md border border-gray-700 hover:bg-gray-800"
-                    >
-                      Prev
-                    </button>
-                    <button
-                      onClick={next}
-                      aria-label="next"
-                      className="px-2 py-1 rounded-md border border-gray-700 hover:bg-gray-800"
-                    >
-                      Next
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
