@@ -46,7 +46,7 @@ export default function LaptopProjectShowcase({
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-400" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
-            <div className="ml-auto text-sm text-gray-400">Your Portfolio</div>
+            <div className="ml-auto text-sm text-gray-400">Sudeera's portfolio </div>
           </div>
            {/* Screen */}
           <div className="bg-black min-h-[360px] md:min-h-[440px] p-8 flex">
