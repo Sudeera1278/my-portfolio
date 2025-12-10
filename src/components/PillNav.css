@@ -48,7 +48,7 @@
 
 .pill {
   position: relative;
-  padding: 8px 16px;
+  padding: 6px 12px;
   text-decoration: none;
   color: var(--base);
   font-size: 13px;
