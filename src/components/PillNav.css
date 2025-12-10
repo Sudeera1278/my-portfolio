@@ -1,0 +1,157 @@
+:root {
+  --base: #fff;
+  --pill-bg: #060010;
+  --hover-text: #060010;
+  --pill-text: #fff;
+}
+
+.pill-nav-container {
+  width: 100%;
+}
+
+.pill-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--base);
+}
+
+.pill-logo {
+  flex-shrink: 0;
+  padding: 8px;
+  border-radius: 9999px;
+  transition: transform 0.2s;
+  will-change: transform;
+}
+.pill-logo:hover {
+  transform: scale(1.1);
+}
+
+.pill-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.pill-nav-items {
+  overflow: hidden;
+}
+
+.pill-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill {
+  position: relative;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: var(--base);
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  display: block;
+}
+
+.hover-circle {
+  position: absolute;
+  left: 50%;
+  transform-origin: center;
+  background-color: var(--pill-bg);
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+}
+
+.label-stack {
+  display: block;
+  position: relative;
+  pointer-events: none;
+}
+
+.pill-label,
+.pill-label-hover {
+  display: block;
+  transition: transform 0.4s;
+  color: var(--base);
+}
+
+.pill-label-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--hover-text);
+}
+
+.is-active {
+  color: var(--pill-text);
+  font-weight: 600;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.mobile-menu-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--base);
+  transition: all 0.3s linear;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
+  .mobile-menu-popover {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 16px;
+    z-index: 5;
+    visibility: hidden;
+  }
+  .mobile-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .mobile-menu-link {
+    color: var(--base);
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .mobile-menu-link.is-active {
+    font-weight: bold;
+    color: var(--pill-text);
+  }
+}
+
+    
