@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import AnimatedButton from "./AnimatedButton";
+import Aurora from "./Aurora";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -94,12 +95,13 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="w-full py-20 md:py-32"
+      className="relative w-full py-20 md:py-32 overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
+      <Aurora />
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           className="flex flex-col items-center text-center mb-16"
