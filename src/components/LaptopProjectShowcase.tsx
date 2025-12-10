@@ -66,12 +66,12 @@ export default function LaptopProjectShowcase({
               </div>
 
               {/* Right: Project details */}
-              <div className="w-full md:w-96 flex flex-col gap-4 text-white">
+              <div className="w-full md:w-96 flex flex-col gap-4 text-white h-full">
                 <div>
                   <h3 className="text-xl font-semibold">
                     {project ? project.title : "No projects"}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-400 min-h-[100px]">
+                  <p className="mt-2 text-sm text-gray-400">
                     {project
                       ? project.desc
                       : "Add project objects via `projects` prop"}
