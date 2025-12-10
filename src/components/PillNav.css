@@ -55,6 +55,7 @@
   font-weight: 500;
   overflow: hidden;
   display: block;
+  border-radius: 9999px;
 }
 
 .hover-circle {
