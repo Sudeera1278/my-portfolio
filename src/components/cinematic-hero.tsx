@@ -65,7 +65,7 @@ const CinematicHero = () => {
             className="text-5xl md:text-7xl font-bold tracking-wider"
           >
             <GlitchText speed={1} enableShadows={true} enableOnHover={true}>
-              Sudeera Dilshan
+              SUDEERA DILSHAN
             </GlitchText>
           </motion.h1>
           <motion.p
