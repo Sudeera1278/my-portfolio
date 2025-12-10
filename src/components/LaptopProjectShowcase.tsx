@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import AnimatedButton from "./AnimatedButton";
 
 export default function LaptopProjectShowcase({
   projects = [],
@@ -72,22 +73,8 @@ export default function LaptopProjectShowcase({
               </div>
                {/* Buttons */}
               <div className="flex gap-3">
-                <a
-                  href={project?.liveUrl || '#'}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href={project?.repoUrl || '#'}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-3 py-2 bg-gray-600 hover:bg-gray-700 text-sm rounded-md"
-                >
-                  View Repo
-                </a>
+                 <AnimatedButton href={project?.liveUrl || '#'} text1="Live Demo" text2="Open" />
+                 <AnimatedButton href={project?.repoUrl || '#'} text1="View Repo" text2="Code" />
               </div>
             </div>
           </div>
